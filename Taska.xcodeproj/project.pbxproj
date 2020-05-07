@@ -3,17 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB66D6122462250F00059E67 /* OptionsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6112462250F00059E67 /* OptionsModal.swift */; };
+		AB66D6142462995200059E67 /* DashboardSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6132462995200059E67 /* DashboardSubview.swift */; };
+		AB66D6162463F4F000059E67 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6152463F4F000059E67 /* Reward.swift */; };
+		AB66D6182463FAD300059E67 /* NewRewardModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6172463FAD300059E67 /* NewRewardModal.swift */; };
+		AB66D61E2464953B00059E67 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB66D61A2464953B00059E67 /* Rubik-Bold.ttf */; };
+		AB66D61F2464953B00059E67 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB66D61B2464953B00059E67 /* Rubik-Medium.ttf */; };
+		AB66D6202464953B00059E67 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB66D61C2464953B00059E67 /* Roboto-Medium.ttf */; };
+		AB66D6212464953C00059E67 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB66D61D2464953B00059E67 /* Roboto-Bold.ttf */; };
+		AB66D6232464B0D200059E67 /* GiftBoxSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */; };
 		AB6E5C112457ABC8006A7AC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */; };
 		AB6E5C132457ABC8006A7AC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */; };
-		AB6E5C152457ABC8006A7AC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C142457ABC8006A7AC0 /* ContentView.swift */; };
 		AB6E5C172457ABCD006A7AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6E5C162457ABCD006A7AC0 /* Assets.xcassets */; };
 		AB6E5C1A2457ABCD006A7AC0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6E5C192457ABCD006A7AC0 /* Preview Assets.xcassets */; };
 		AB6E5C1D2457ABCD006A7AC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6E5C1B2457ABCD006A7AC0 /* LaunchScreen.storyboard */; };
 		AB6E5C282457ABCD006A7AC0 /* esportstrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C272457ABCD006A7AC0 /* esportstrackerTests.swift */; };
+		AB6E5C4B245C083C006A7AC0 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C45245C083B006A7AC0 /* TasksView.swift */; };
+		AB6E5C4C245C083C006A7AC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C46245C083B006A7AC0 /* ContentView.swift */; };
+		AB6E5C4D245C083C006A7AC0 /* TaskItemSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C47245C083B006A7AC0 /* TaskItemSubview.swift */; };
+		AB6E5C4E245C083C006A7AC0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C49245C083B006A7AC0 /* Task.swift */; };
+		AB6E5C4F245C083C006A7AC0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C4A245C083B006A7AC0 /* Colors.swift */; };
+		AB6E5C54245E5308006A7AC0 /* NewTaskModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C53245E5308006A7AC0 /* NewTaskModal.swift */; };
+		AB6E5C59245FA94A006A7AC0 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = AB6E5C58245FA94A006A7AC0 /* PartialSheet */; };
+		AB6E5C5B2460F6F1006A7AC0 /* SystemServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C5A2460F6F1006A7AC0 /* SystemServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +43,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB6E5C0D2457ABC8006A7AC0 /* esportstracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = esportstracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB66D6112462250F00059E67 /* OptionsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsModal.swift; sourceTree = "<group>"; };
+		AB66D6132462995200059E67 /* DashboardSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSubview.swift; sourceTree = "<group>"; };
+		AB66D6152463F4F000059E67 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		AB66D6172463FAD300059E67 /* NewRewardModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRewardModal.swift; sourceTree = "<group>"; };
+		AB66D61A2464953B00059E67 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		AB66D61B2464953B00059E67 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		AB66D61C2464953B00059E67 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		AB66D61D2464953B00059E67 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBoxSubview.swift; sourceTree = "<group>"; };
+		AB6E5C0D2457ABC8006A7AC0 /* Taska.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taska.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AB6E5C142457ABC8006A7AC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AB6E5C162457ABCD006A7AC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB6E5C192457ABCD006A7AC0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB6E5C1C2457ABCD006A7AC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB6E5C1E2457ABCD006A7AC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB6E5C232457ABCD006A7AC0 /* esportstrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = esportstrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB6E5C232457ABCD006A7AC0 /* TaskaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6E5C272457ABCD006A7AC0 /* esportstrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = esportstrackerTests.swift; sourceTree = "<group>"; };
 		AB6E5C292457ABCD006A7AC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB6E5C45245C083B006A7AC0 /* TasksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		AB6E5C46245C083B006A7AC0 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AB6E5C47245C083B006A7AC0 /* TaskItemSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskItemSubview.swift; sourceTree = "<group>"; };
+		AB6E5C49245C083B006A7AC0 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		AB6E5C4A245C083B006A7AC0 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		AB6E5C53245E5308006A7AC0 /* NewTaskModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskModal.swift; sourceTree = "<group>"; };
+		AB6E5C5A2460F6F1006A7AC0 /* SystemServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB6E5C59245FA94A006A7AC0 /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,11 +90,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB66D6192464938000059E67 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				AB66D61D2464953B00059E67 /* Roboto-Bold.ttf */,
+				AB66D61C2464953B00059E67 /* Roboto-Medium.ttf */,
+				AB66D61A2464953B00059E67 /* Rubik-Bold.ttf */,
+				AB66D61B2464953B00059E67 /* Rubik-Medium.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		AB6E5C042457ABC8006A7AC0 = {
 			isa = PBXGroup;
 			children = (
-				AB6E5C0F2457ABC8006A7AC0 /* esportstracker */,
-				AB6E5C262457ABCD006A7AC0 /* esportstrackerTests */,
+				AB6E5C0F2457ABC8006A7AC0 /* Taska */,
+				AB6E5C262457ABCD006A7AC0 /* TaskaTests */,
 				AB6E5C0E2457ABC8006A7AC0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,24 +113,27 @@
 		AB6E5C0E2457ABC8006A7AC0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB6E5C0D2457ABC8006A7AC0 /* esportstracker.app */,
-				AB6E5C232457ABCD006A7AC0 /* esportstrackerTests.xctest */,
+				AB6E5C0D2457ABC8006A7AC0 /* Taska.app */,
+				AB6E5C232457ABCD006A7AC0 /* TaskaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AB6E5C0F2457ABC8006A7AC0 /* esportstracker */ = {
+		AB6E5C0F2457ABC8006A7AC0 /* Taska */ = {
 			isa = PBXGroup;
 			children = (
+				AB66D6192464938000059E67 /* Font */,
+				AB6E5C48245C083B006A7AC0 /* Models */,
+				AB6E5C44245C083B006A7AC0 /* Views */,
 				AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */,
 				AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */,
-				AB6E5C142457ABC8006A7AC0 /* ContentView.swift */,
+				AB6E5C5A2460F6F1006A7AC0 /* SystemServices.swift */,
 				AB6E5C162457ABCD006A7AC0 /* Assets.xcassets */,
 				AB6E5C1B2457ABCD006A7AC0 /* LaunchScreen.storyboard */,
 				AB6E5C1E2457ABCD006A7AC0 /* Info.plist */,
 				AB6E5C182457ABCD006A7AC0 /* Preview Content */,
 			);
-			path = esportstracker;
+			path = Taska;
 			sourceTree = "<group>";
 		};
 		AB6E5C182457ABCD006A7AC0 /* Preview Content */ = {
@@ -98,21 +144,46 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AB6E5C262457ABCD006A7AC0 /* esportstrackerTests */ = {
+		AB6E5C262457ABCD006A7AC0 /* TaskaTests */ = {
 			isa = PBXGroup;
 			children = (
 				AB6E5C272457ABCD006A7AC0 /* esportstrackerTests.swift */,
 				AB6E5C292457ABCD006A7AC0 /* Info.plist */,
 			);
-			path = esportstrackerTests;
+			path = TaskaTests;
+			sourceTree = "<group>";
+		};
+		AB6E5C44245C083B006A7AC0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB6E5C46245C083B006A7AC0 /* ContentView.swift */,
+				AB6E5C45245C083B006A7AC0 /* TasksView.swift */,
+				AB66D6132462995200059E67 /* DashboardSubview.swift */,
+				AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */,
+				AB6E5C47245C083B006A7AC0 /* TaskItemSubview.swift */,
+				AB6E5C53245E5308006A7AC0 /* NewTaskModal.swift */,
+				AB66D6172463FAD300059E67 /* NewRewardModal.swift */,
+				AB66D6112462250F00059E67 /* OptionsModal.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AB6E5C48245C083B006A7AC0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AB6E5C49245C083B006A7AC0 /* Task.swift */,
+				AB66D6152463F4F000059E67 /* Reward.swift */,
+				AB6E5C4A245C083B006A7AC0 /* Colors.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AB6E5C0C2457ABC8006A7AC0 /* esportstracker */ = {
+		AB6E5C0C2457ABC8006A7AC0 /* Taska */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB6E5C2C2457ABCD006A7AC0 /* Build configuration list for PBXNativeTarget "esportstracker" */;
+			buildConfigurationList = AB6E5C2C2457ABCD006A7AC0 /* Build configuration list for PBXNativeTarget "Taska" */;
 			buildPhases = (
 				AB6E5C092457ABC8006A7AC0 /* Sources */,
 				AB6E5C0A2457ABC8006A7AC0 /* Frameworks */,
@@ -122,14 +193,17 @@
 			);
 			dependencies = (
 			);
-			name = esportstracker;
+			name = Taska;
+			packageProductDependencies = (
+				AB6E5C58245FA94A006A7AC0 /* PartialSheet */,
+			);
 			productName = esportstracker;
-			productReference = AB6E5C0D2457ABC8006A7AC0 /* esportstracker.app */;
+			productReference = AB6E5C0D2457ABC8006A7AC0 /* Taska.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AB6E5C222457ABCD006A7AC0 /* esportstrackerTests */ = {
+		AB6E5C222457ABCD006A7AC0 /* TaskaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB6E5C2F2457ABCD006A7AC0 /* Build configuration list for PBXNativeTarget "esportstrackerTests" */;
+			buildConfigurationList = AB6E5C2F2457ABCD006A7AC0 /* Build configuration list for PBXNativeTarget "TaskaTests" */;
 			buildPhases = (
 				AB6E5C1F2457ABCD006A7AC0 /* Sources */,
 				AB6E5C202457ABCD006A7AC0 /* Frameworks */,
@@ -140,9 +214,9 @@
 			dependencies = (
 				AB6E5C252457ABCD006A7AC0 /* PBXTargetDependency */,
 			);
-			name = esportstrackerTests;
+			name = TaskaTests;
 			productName = esportstrackerTests;
-			productReference = AB6E5C232457ABCD006A7AC0 /* esportstrackerTests.xctest */;
+			productReference = AB6E5C232457ABCD006A7AC0 /* TaskaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -164,7 +238,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AB6E5C082457ABC8006A7AC0 /* Build configuration list for PBXProject "esportstracker" */;
+			buildConfigurationList = AB6E5C082457ABC8006A7AC0 /* Build configuration list for PBXProject "Taska" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -173,12 +247,15 @@
 				Base,
 			);
 			mainGroup = AB6E5C042457ABC8006A7AC0;
+			packageReferences = (
+				AB6E5C57245FA94A006A7AC0 /* XCRemoteSwiftPackageReference "PartialSheet" */,
+			);
 			productRefGroup = AB6E5C0E2457ABC8006A7AC0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AB6E5C0C2457ABC8006A7AC0 /* esportstracker */,
-				AB6E5C222457ABCD006A7AC0 /* esportstrackerTests */,
+				AB6E5C0C2457ABC8006A7AC0 /* Taska */,
+				AB6E5C222457ABCD006A7AC0 /* TaskaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -188,9 +265,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB66D6212464953C00059E67 /* Roboto-Bold.ttf in Resources */,
 				AB6E5C1D2457ABCD006A7AC0 /* LaunchScreen.storyboard in Resources */,
+				AB66D61E2464953B00059E67 /* Rubik-Bold.ttf in Resources */,
+				AB66D6202464953B00059E67 /* Roboto-Medium.ttf in Resources */,
 				AB6E5C1A2457ABCD006A7AC0 /* Preview Assets.xcassets in Resources */,
 				AB6E5C172457ABCD006A7AC0 /* Assets.xcassets in Resources */,
+				AB66D61F2464953B00059E67 /* Rubik-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,9 +289,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB66D6122462250F00059E67 /* OptionsModal.swift in Sources */,
+				AB66D6232464B0D200059E67 /* GiftBoxSubview.swift in Sources */,
+				AB6E5C4F245C083C006A7AC0 /* Colors.swift in Sources */,
 				AB6E5C112457ABC8006A7AC0 /* AppDelegate.swift in Sources */,
 				AB6E5C132457ABC8006A7AC0 /* SceneDelegate.swift in Sources */,
-				AB6E5C152457ABC8006A7AC0 /* ContentView.swift in Sources */,
+				AB66D6162463F4F000059E67 /* Reward.swift in Sources */,
+				AB66D6142462995200059E67 /* DashboardSubview.swift in Sources */,
+				AB6E5C4B245C083C006A7AC0 /* TasksView.swift in Sources */,
+				AB66D6182463FAD300059E67 /* NewRewardModal.swift in Sources */,
+				AB6E5C4E245C083C006A7AC0 /* Task.swift in Sources */,
+				AB6E5C4D245C083C006A7AC0 /* TaskItemSubview.swift in Sources */,
+				AB6E5C5B2460F6F1006A7AC0 /* SystemServices.swift in Sources */,
+				AB6E5C4C245C083C006A7AC0 /* ContentView.swift in Sources */,
+				AB6E5C54245E5308006A7AC0 /* NewTaskModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +319,7 @@
 /* Begin PBXTargetDependency section */
 		AB6E5C252457ABCD006A7AC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AB6E5C0C2457ABC8006A7AC0 /* esportstracker */;
+			target = AB6E5C0C2457ABC8006A7AC0 /* Taska */;
 			targetProxy = AB6E5C242457ABCD006A7AC0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -363,16 +455,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"esportstracker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Taska/Preview Content\"";
 				DEVELOPMENT_TEAM = EG7G6MZGBM;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = esportstracker/Info.plist;
+				INFOPLIST_FILE = Taska/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.six.esportstracker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.six.taska;
+				PRODUCT_NAME = Taska;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -383,16 +475,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"esportstracker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Taska/Preview Content\"";
 				DEVELOPMENT_TEAM = EG7G6MZGBM;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = esportstracker/Info.plist;
+				INFOPLIST_FILE = Taska/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.six.esportstracker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.six.taska;
+				PRODUCT_NAME = Taska;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -416,7 +508,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/esportstracker.app/esportstracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taska.app/Taska";
 			};
 			name = Debug;
 		};
@@ -438,14 +530,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/esportstracker.app/esportstracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taska.app/Taska";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AB6E5C082457ABC8006A7AC0 /* Build configuration list for PBXProject "esportstracker" */ = {
+		AB6E5C082457ABC8006A7AC0 /* Build configuration list for PBXProject "Taska" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB6E5C2A2457ABCD006A7AC0 /* Debug */,
@@ -454,7 +546,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB6E5C2C2457ABCD006A7AC0 /* Build configuration list for PBXNativeTarget "esportstracker" */ = {
+		AB6E5C2C2457ABCD006A7AC0 /* Build configuration list for PBXNativeTarget "Taska" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB6E5C2D2457ABCD006A7AC0 /* Debug */,
@@ -463,7 +555,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB6E5C2F2457ABCD006A7AC0 /* Build configuration list for PBXNativeTarget "esportstrackerTests" */ = {
+		AB6E5C2F2457ABCD006A7AC0 /* Build configuration list for PBXNativeTarget "TaskaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB6E5C302457ABCD006A7AC0 /* Debug */,
@@ -473,6 +565,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AB6E5C57245FA94A006A7AC0 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AB6E5C58245FA94A006A7AC0 /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB6E5C57245FA94A006A7AC0 /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AB6E5C052457ABC8006A7AC0 /* Project object */;
 }
