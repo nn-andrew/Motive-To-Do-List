@@ -9,17 +9,24 @@
 import SwiftUI
 import Foundation
 
+
 class Rewards: ObservableObject {
-    @Published var rewards = [Reward]()
-    @Published var completedRewards: [Reward] = []
-    @Published var percentageCompleted: Double = 0
+    var rewards = [Reward]()
+    var completedRewards: [Reward] = []
+    var percentageCompleted: Double = 0
     
     func addReward(reward: Reward) {
-        self.rewards.append(reward)
-        print(self.rewards)
+        rewards.append(reward)
+        if rewards.count > 1 {
+            rewards.sort {
+                $0.completedTasksNeeded < $1.completedTasksNeeded
+            }
+        }
+        print(rewards)
     }
     
     func transferReward(reward: Reward) {
+        print("hi2")
         if let index = rewards.firstIndex(where: {$0.id == reward.id}) {
             rewards.remove(at: index)
             completedRewards.insert(reward, at: 0)
@@ -36,30 +43,43 @@ class Rewards: ObservableObject {
         percentageCompleted = Double(completedRewards.count) / Double(rewards.count + completedRewards.count)
     }
     
+//    func upcomingReward() -> Reward {
+//        if rewards.count == 0 {
+//            return Reward()
+//        } else {
+//            var upcomingReward = rewards[0]
+//
+//            for reward in rewards {
+//                if reward.completedTasksNeeded < upcomingReward.completedTasksNeeded {
+//                    upcomingReward = reward
+//                }
+//            }
+//
+//            return upcomingReward
+//        }
+//    }
+    
     func lowestRequiredCompletedTaskCount() -> Int {
         if rewards.count == 0 {
-            return 1
+            return -1
         } else {
-            var min = rewards[0].completedTasksNeeded
-
-            for reward in rewards {
-                if reward.completedTasksNeeded < min {
-                    min = reward.completedTasksNeeded
-                }
-            }
-            
-            return min
+            return rewards[0].completedTasksNeeded
         }
     }
     
-    func checkForCompletedReward(completedTasksCount: Int) {
-        for reward in rewards {
-            print(completedTasksCount, reward.completedTasksNeeded)
-            if completedTasksCount >= reward.completedTasksNeeded {
-                print("rewarded, congrats!")
+    func isRewardReached(completedTasksCount: Int) -> Bool {
+        // returns true if a reward has been reached
+//        print(completedTasksCount, reward.completedTasksNeeded)
+        if rewards.count > 0 {
+            if completedTasksCount >= rewards[0].completedTasksNeeded {
+                transferReward(reward: rewards[0])
+                return true
             }
         }
+        
+        return false
     }
+    
 }
 
 class Reward: Identifiable & ObservableObject {
@@ -78,7 +98,7 @@ class Reward: Identifiable & ObservableObject {
         title = Text("temp")
         titleWithoutStrikethrough = Text("temp")
         titleWithStrikethrough = Text("temp").strikethrough(color: .white)
-        completedTasksNeeded = 0
+        completedTasksNeeded = 1
     }
     
     func changeTitle(new_title: Text) {

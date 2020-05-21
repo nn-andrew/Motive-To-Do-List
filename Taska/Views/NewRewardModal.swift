@@ -18,7 +18,7 @@ struct NewRewardModal: View {
     @State var isTextFieldFirstResponder: Bool? = true
     @State var isTempFirstResponder: Bool? = false
     @State var new_title: String = String("")
-    @State var completedTasksNeeded: Int = 0
+    @State var completedTasksNeeded: Int = 1
     
     var body: some View {
         GeometryReader { geo in

@@ -16,6 +16,7 @@
 		AB66D6202464953B00059E67 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB66D61C2464953B00059E67 /* Roboto-Medium.ttf */; };
 		AB66D6212464953C00059E67 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB66D61D2464953B00059E67 /* Roboto-Bold.ttf */; };
 		AB66D6232464B0D200059E67 /* GiftBoxSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */; };
+		AB66D6272465380900059E67 /* RewardReachedModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6262465380900059E67 /* RewardReachedModal.swift */; };
 		AB6E5C112457ABC8006A7AC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */; };
 		AB6E5C132457ABC8006A7AC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */; };
 		AB6E5C172457ABCD006A7AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6E5C162457ABCD006A7AC0 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		AB66D61C2464953B00059E67 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		AB66D61D2464953B00059E67 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBoxSubview.swift; sourceTree = "<group>"; };
+		AB66D6262465380900059E67 /* RewardReachedModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardReachedModal.swift; sourceTree = "<group>"; };
 		AB6E5C0D2457ABC8006A7AC0 /* Taska.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taska.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				AB6E5C53245E5308006A7AC0 /* NewTaskModal.swift */,
 				AB66D6172463FAD300059E67 /* NewRewardModal.swift */,
 				AB66D6112462250F00059E67 /* OptionsModal.swift */,
+				AB66D6262465380900059E67 /* RewardReachedModal.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				AB66D6142462995200059E67 /* DashboardSubview.swift in Sources */,
 				AB6E5C4B245C083C006A7AC0 /* TasksView.swift in Sources */,
 				AB66D6182463FAD300059E67 /* NewRewardModal.swift in Sources */,
+				AB66D6272465380900059E67 /* RewardReachedModal.swift in Sources */,
 				AB6E5C4E245C083C006A7AC0 /* Task.swift in Sources */,
 				AB6E5C4D245C083C006A7AC0 /* TaskItemSubview.swift in Sources */,
 				AB6E5C5B2460F6F1006A7AC0 /* SystemServices.swift in Sources */,

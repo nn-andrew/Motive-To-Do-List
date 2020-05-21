@@ -21,15 +21,19 @@ struct ContentView: View {
                         path.addLine(to: CGPoint(x: 414, y: 310))
                         path.addLine(to: CGPoint(x: 414, y: -44))
                     }
-                    .fill(LinearGradient(gradient: Colors.redGradient, startPoint: .leading, endPoint: .trailing))
+                    .fill(LinearGradient(gradient: Colors.blueGradient, startPoint: .leading, endPoint: .trailing))
+                    .opacity(0.9)
                     HStack {
-                        VStack {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 0)
+                                .stroke(Color.white, lineWidth: 6)
+                                .frame(width: 150, height: 70)
                             Text("taska")
                                 .fontWeight(.bold)
                                 .font(.system(size: 44))
                                 .foregroundColor(.white)
-                                .padding(.bottom, 400)
                         }
+                        .padding(.bottom, 400)
                     }
                     Text("\"A goal without a plan is just a wish.\"")
                         .fontWeight(.semibold)
@@ -37,7 +41,8 @@ struct ContentView: View {
                         .offset(y: 30)
                     ZStack {
                         RoundedRectangle(cornerRadius: 40)
-                            .fill(LinearGradient(gradient: Colors.redGradient, startPoint: .leading, endPoint: .trailing))
+                            .fill(LinearGradient(gradient: Colors.blueGradient, startPoint: .leading, endPoint: .trailing))
+                            .opacity(0.9)
                             .frame(width: 200, height: 70)
                         NavigationLink(destination: TasksView()) {
                             Text("Continue")

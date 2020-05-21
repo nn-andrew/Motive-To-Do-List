@@ -9,14 +9,16 @@
 import SwiftUI
 import Foundation
 
+
 class Tasks: ObservableObject {
-    @Published var tasks = [Task]()
-    @Published var completedTasks: [Task] = []
+    var rewards: Rewards = Rewards()
+    var tasks = [Task]()
+    var completedTasks: [Task] = []
     @Published var percentageCompleted: Double = 0
     
     func addTask(task: Task) {
-        self.tasks.append(task)
-        print(self.tasks)
+        tasks.append(task)
+        print(tasks)
     }
     
     func transferTask(task: Task) {
@@ -72,7 +74,7 @@ class Task: Identifiable & ObservableObject {
 }
 
 //struct Task_Previews: PreviewProvider {
-//    static var previews: some View {
+//    var previews: some View {
 //        Task()
 //    }
 //}

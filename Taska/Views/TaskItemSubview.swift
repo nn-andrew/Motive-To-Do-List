@@ -7,13 +7,16 @@
 //
 
 import SwiftUI
+import PartialSheet
 
 struct TaskItemSubview: View {
+    @EnvironmentObject var partialSheetManager: PartialSheetManager
     @EnvironmentObject var tasks: Tasks
     @EnvironmentObject var rewards: Rewards
     
-    let task: Task
+    var task: Task
     @State var taskDone = false
+    @State var rewardReached = false
     
     var body: some View {
         GeometryReader { geo in
@@ -31,10 +34,14 @@ struct TaskItemSubview: View {
                             self.tasks.transferTask(task: self.task)
                             if self.taskDone == true {
                                 self.task.title = self.task.titleWithStrikethrough
-                                self.rewards.checkForCompletedReward(completedTasksCount: self.tasks.completedTasks.count)
+                                
+                                if self.rewards.isRewardReached(completedTasksCount: self.tasks.completedTasks.count) {
+                                    self.rewardReached = true
+                                }
                             } else {
                                 self.task.title = self.task.titleWithoutStrikethrough
                             }
+                            
                         }) {
                             ZStack {
                                 Rectangle()
@@ -46,6 +53,10 @@ struct TaskItemSubview: View {
                                     //.padding(.leading, 40)
                                     .frame(width: 30, height: 30)
                             }
+                        }
+                        .sheet(isPresented: self.$rewardReached) {
+                            RewardReachedModal()
+                                .environmentObject(self.rewards)
                         }
                     }
                     self.task.title

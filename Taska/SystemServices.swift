@@ -13,13 +13,13 @@ import PartialSheet
 struct SystemServices: ViewModifier {
     
     static var sheetManager: PartialSheetManager = PartialSheetManager()
-    @ObservedObject var tasks: Tasks = Tasks()
-    @ObservedObject var rewards: Rewards = Rewards()
+    @ObservedObject static var tasks: Tasks = Tasks()
+    @ObservedObject static var rewards: Rewards = Rewards()
     
     func body(content: Content) -> some View {
         content
             .environmentObject(Self.sheetManager)
-            .environmentObject(self.tasks)
-            .environmentObject(self.rewards)
+            .environmentObject(Self.tasks)
+            .environmentObject(Self.rewards)
     }
 }

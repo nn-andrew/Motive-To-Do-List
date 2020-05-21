@@ -14,63 +14,65 @@ struct DashboardSubview: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                    VStack {
-                        HStack {
-                            VStack {
-                                HStack {
-                                    Text("monday")
-                                        .foregroundColor(.white)
-                                        .font(.custom("Rubik-Medium", size: 30))
-                                    Spacer()
-                                }
-                                HStack {
-                                    Text(String(Int(self.tasks.percentageCompleted * 100)))
-                                        .foregroundColor(.white)
-                                    Text("%")
-                                        .offset(x: -6)
-                                        .foregroundColor(.white)
-                                    Spacer()
-                                }
-                                .padding(.bottom, -16)
+                VStack {
+                    HStack {
+                        VStack {
+                            HStack {
+                                Text("monday")
+                                    .foregroundColor(.white)
+                                    .font(.custom("Rubik-Medium", size: 30))
+                                Spacer()
                             }
+                            HStack {
+                                Text(String(Int(self.tasks.percentageCompleted * 100)))
+                                    .foregroundColor(.white)
+                                Text("%")
+                                    .offset(x: -6)
+                                    .foregroundColor(.white)
+                                Spacer()
+                            }
+                            .padding(.bottom, -16)
+                        }
 //                            .border(Color.white)
-                            
-                            // Gift box
-                            GiftBoxSubview()
-                        }
                         
-                        // Progress bar
-                        GeometryReader { geo1 in
-                            ZStack {
-                                HStack {
-                                    RoundedRectangle(cornerRadius: 40)
-                                        .fill(Color.white)
-                                        .opacity(0.3)
-                                        .frame(width: CGFloat(Int(geo1.size.width)), height: 7)
-                                        .padding(.bottom, 36)
-                                    Spacer()
-                                }
-    
-                                HStack {
-                                    RoundedRectangle(cornerRadius: 40)
-                                        .fill(Color.white)
-                                        .frame(width: CGFloat(Int(geo1.size.width * CGFloat(self.tasks.percentageCompleted))), height: 7)
-                                        .animation(.default)
-                                        .padding(.bottom, 36)
-                                    Spacer()
-                                }
+                        // Gift box
+                        GiftBoxSubview()
+                    }
+//                    .border(Color.red)
+                    .offset(y: 30)
+                    
+                    // Progress bar
+                    GeometryReader { geo1 in
+                        ZStack {
+                            HStack {
+                                RoundedRectangle(cornerRadius: 40)
+                                    .fill(Color.white)
+                                    .opacity(0.3)
+                                    .frame(width: CGFloat(Int(geo1.size.width)), height: 7)
+//                                    .padding(.bottom, 36)
+                                Spacer()
+                            }
+
+                            HStack {
+                                RoundedRectangle(cornerRadius: 40)
+                                    .fill(Color.white)
+                                    .frame(width: CGFloat(Int(geo1.size.width * CGFloat(self.tasks.percentageCompleted))), height: 7)
+                                    .animation(.default)
+//                                    .padding(.bottom, 36)
+                                Spacer()
                             }
                         }
-                        .frame(height: 50)
-                        .padding(.bottom, -20)
-//                        .border(Color.green)
                     }
-                    .frame(maxWidth: geo.size.width - 100, maxHeight: 100)
-                    .offset(y: 30)
+                    .frame(height: 50)
+                    .padding(.bottom, -24)
+//                        .border(Color.green)
+                }
+                .frame(maxWidth: geo.size.width - 100, maxHeight: 100)
+                .offset(y: 30)
 //                    .border(Color.red)
+            
+                //.border(Color.red)
                 
-                    //.border(Color.red)
-                    
 //                    VStack {
 //                        Spacer()
 //                        Spacer()
@@ -79,10 +81,10 @@ struct DashboardSubview: View {
 //                            .frame(width: 120)
 //                            .border(Color.green)
 //                    }
-
             }
-            .frame(width: geo.size.width+1, height: 200)
+            .frame(width: geo.size.width+1, height: 240)
             .background(LinearGradient(gradient: Colors.blueGradient, startPoint: .leading, endPoint: .trailing))
+            .offset(y: 30)
             .opacity(0.9)
         }
     }
