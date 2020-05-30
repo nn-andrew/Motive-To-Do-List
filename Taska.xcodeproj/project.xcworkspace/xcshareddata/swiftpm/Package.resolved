@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "PartialSheet",
-        "repositoryURL": "https://github.com/AndreaMiotto/PartialSheet",
+        "repositoryURL": "https://github.com/AndreaMiotto/PartialSheet.git",
         "state": {
           "branch": null,
-          "revision": "1d6c1ba08932789df5df0477f81f61e4ce136925",
-          "version": "2.1.1"
+          "revision": "f8b4ae9c6809df0334605ba7e77ef5c14d737127",
+          "version": "2.1.4"
         }
       }
     ]

@@ -18,11 +18,15 @@ struct NewRewardModal: View {
     @State var isTextFieldFirstResponder: Bool? = true
     @State var isTempFirstResponder: Bool? = false
     @State var new_title: String = String("")
-    @State var completedTasksNeeded: Int = 1
+    @State var completedTasksNeeded: Int = 0
+    
+    var completedTasksNeededRange = ["1","2","3","4","5","6","7","8","9","10"]
+    
+    
     
     var body: some View {
         GeometryReader { geo in
-            VStack {
+            VStack() {
                 // Sets the reward title after user inputs into text field
                 TextField("Add reward title", text: self.$new_title, onCommit: {
                     self.reward.changeTitle(new_title: Text(self.new_title))
@@ -30,16 +34,37 @@ struct NewRewardModal: View {
                     self.rewards.addReward(reward: self.reward)
                     self.rewards.calculatePercentageCompleted()
                     self.partialSheetManager.closePartialSheet()
-
                 })
-                
-                ZStack {
-                    Stepper("Rewarded at:", value: self.$completedTasksNeeded, in: 1...99)
-                    Text(String(self.completedTasksNeeded))
-                        .offset(x: -20)
-                }
+//                    .border(Color.red)
+                self.stepper
+                    .offset(y: 10)
+//                    .border(Color.green)
+                Spacer()
+            }
+            .padding(.top, 16)
+//            .frame(height: geo.size.height)
+        }
+//        .border(Color.blue)
+    }
+    
+    var stepper: some View {
+        ZStack {
+            Stepper("Rewarded at:", value: self.$completedTasksNeeded, in: 1...99)
+            Text(String(self.completedTasksNeeded))
+                .offset(x: -20)
+        }
+    }
+    
+    var picker: some View {
+        Picker(selection: self.$completedTasksNeeded, label: Text("Rewarded at:")) {
+            ForEach(0 ..< self.completedTasksNeededRange.count) {
+                Text(self.completedTasksNeededRange[$0])
             }
         }
+        .frame(height: 140)
+        .border(Color.green)
+        .clipped()
+        .allowsHitTesting(false)
     }
 }
 

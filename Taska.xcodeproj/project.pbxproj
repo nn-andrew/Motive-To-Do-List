@@ -17,6 +17,7 @@
 		AB66D6212464953C00059E67 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB66D61D2464953B00059E67 /* Roboto-Bold.ttf */; };
 		AB66D6232464B0D200059E67 /* GiftBoxSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */; };
 		AB66D6272465380900059E67 /* RewardReachedModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6262465380900059E67 /* RewardReachedModal.swift */; };
+		AB66D6372480E81000059E67 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = AB66D6362480E81000059E67 /* PartialSheet */; };
 		AB6E5C112457ABC8006A7AC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */; };
 		AB6E5C132457ABC8006A7AC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */; };
 		AB6E5C172457ABCD006A7AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6E5C162457ABCD006A7AC0 /* Assets.xcassets */; };
@@ -29,7 +30,6 @@
 		AB6E5C4E245C083C006A7AC0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C49245C083B006A7AC0 /* Task.swift */; };
 		AB6E5C4F245C083C006A7AC0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C4A245C083B006A7AC0 /* Colors.swift */; };
 		AB6E5C54245E5308006A7AC0 /* NewTaskModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C53245E5308006A7AC0 /* NewTaskModal.swift */; };
-		AB6E5C59245FA94A006A7AC0 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = AB6E5C58245FA94A006A7AC0 /* PartialSheet */; };
 		AB6E5C5B2460F6F1006A7AC0 /* SystemServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C5A2460F6F1006A7AC0 /* SystemServices.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +54,7 @@
 		AB66D61D2464953B00059E67 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBoxSubview.swift; sourceTree = "<group>"; };
 		AB66D6262465380900059E67 /* RewardReachedModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardReachedModal.swift; sourceTree = "<group>"; };
+		AB66D63A2480EBAE00059E67 /* PartialSheet */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PartialSheet; path = ../../../../Desktop/PartialSheet; sourceTree = "<group>"; };
 		AB6E5C0D2457ABC8006A7AC0 /* Taska.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taska.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB6E5C59245FA94A006A7AC0 /* PartialSheet in Frameworks */,
+				AB66D6372480E81000059E67 /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,12 +104,21 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		AB66D62B2480E0BC00059E67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AB6E5C042457ABC8006A7AC0 = {
 			isa = PBXGroup;
 			children = (
+				AB66D63A2480EBAE00059E67 /* PartialSheet */,
 				AB6E5C0F2457ABC8006A7AC0 /* Taska */,
 				AB6E5C262457ABCD006A7AC0 /* TaskaTests */,
 				AB6E5C0E2457ABC8006A7AC0 /* Products */,
+				AB66D62B2480E0BC00059E67 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,9 +170,9 @@
 			children = (
 				AB6E5C46245C083B006A7AC0 /* ContentView.swift */,
 				AB6E5C45245C083B006A7AC0 /* TasksView.swift */,
+				AB6E5C47245C083B006A7AC0 /* TaskItemSubview.swift */,
 				AB66D6132462995200059E67 /* DashboardSubview.swift */,
 				AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */,
-				AB6E5C47245C083B006A7AC0 /* TaskItemSubview.swift */,
 				AB6E5C53245E5308006A7AC0 /* NewTaskModal.swift */,
 				AB66D6172463FAD300059E67 /* NewRewardModal.swift */,
 				AB66D6112462250F00059E67 /* OptionsModal.swift */,
@@ -198,7 +208,7 @@
 			);
 			name = Taska;
 			packageProductDependencies = (
-				AB6E5C58245FA94A006A7AC0 /* PartialSheet */,
+				AB66D6362480E81000059E67 /* PartialSheet */,
 			);
 			productName = esportstracker;
 			productReference = AB6E5C0D2457ABC8006A7AC0 /* Taska.app */;
@@ -251,7 +261,7 @@
 			);
 			mainGroup = AB6E5C042457ABC8006A7AC0;
 			packageReferences = (
-				AB6E5C57245FA94A006A7AC0 /* XCRemoteSwiftPackageReference "PartialSheet" */,
+				AB66D6352480E81000059E67 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = AB6E5C0E2457ABC8006A7AC0 /* Products */;
 			projectDirPath = "";
@@ -462,6 +472,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Taska/Preview Content\"";
 				DEVELOPMENT_TEAM = EG7G6MZGBM;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Taska/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -482,6 +493,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Taska/Preview Content\"";
 				DEVELOPMENT_TEAM = EG7G6MZGBM;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Taska/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -571,20 +583,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AB6E5C57245FA94A006A7AC0 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+		AB66D6352480E81000059E67 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.1;
+				minimumVersion = 2.1.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AB6E5C58245FA94A006A7AC0 /* PartialSheet */ = {
+		AB66D6362480E81000059E67 /* PartialSheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AB6E5C57245FA94A006A7AC0 /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			package = AB66D6352480E81000059E67 /* XCRemoteSwiftPackageReference "PartialSheet" */;
 			productName = PartialSheet;
 		};
 /* End XCSwiftPackageProductDependency section */

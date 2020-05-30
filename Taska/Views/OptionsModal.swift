@@ -11,14 +11,15 @@ import PartialSheet
 
 struct OptionsModal: View {
     @EnvironmentObject var partialSheetManager: PartialSheetManager
-
+    @EnvironmentObject var tasks: Tasks
     
     var body: some View {
         VStack {
             Button(action: {
-                self.partialSheetManager.closePartialSheet()
+                self.tasks.removeAllCompletedTasks()
+//                self.partialSheetManager.closePartialSheet()
             }) {
-                Text("Hide completed tasks")
+                Text("Remove all completed tasks")
             }
         }
     }

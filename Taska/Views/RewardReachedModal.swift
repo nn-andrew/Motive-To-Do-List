@@ -18,13 +18,18 @@ struct RewardReachedModal: View {
                 VStack() {
                     Text("Congratulations! You reached a reward:\n")
 //                    Spacer()
-                    self.rewards.completedRewards[0].title
+                    self.rewardTitle
                     Spacer()
                 }
             }
             .frame(height: geo.size.height * 0.9)
 //            .border(Color.red)
         }
+    }
+    
+    @ViewBuilder
+    var rewardTitle: some View {
+        self.rewards.rewards.count > 0 ? self.rewards.rewards[0].title : Text("empty rewards list")
     }
 }
 

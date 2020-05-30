@@ -15,7 +15,7 @@ struct GiftBoxSubview: View {
     var body: some View {
         ZStack {
             layer0
-            layer1
+            layer2
                 
         }
     }
@@ -99,10 +99,60 @@ struct GiftBoxSubview: View {
         )
     }
     
+    var layer2: some View {
+        ZStack() {
+            HStack {
+                Spacer()
+                Capsule()
+                    .rotation(Angle(degrees: 26.0))
+                    .fill(Colors.red1)
+                    .frame(width: 30, height: 20)
+                    .padding(-10)
+                Capsule()
+                    .rotation(Angle(degrees: -26.0))
+                    .fill(Colors.red1)
+                    .frame(width: 30, height: 20)
+                    .padding(-10)
+                Spacer()
+            }
+            .offset(y: -32)
+
+            VStack {
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(Colors.white0)
+                    .frame(width: 86, height: 24)
+                    .offset(y: -18)
+            }
+            VStack {
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(Colors.white0)
+                    .frame(width: 70, height: 70)
+                    .offset(y: 5)
+            }
+            
+            VStack {
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(Colors.red1)
+                    .frame(width: 23, height: 28)
+                    .offset(y: -18)
+            }
+            VStack {
+                RoundedRectangle(cornerRadius: 0)
+                    .fill(Colors.red1)
+                    .frame(width: 20, height: 70)
+                    .offset(y: 5)
+            }
+        }
+        .frame(height: 100)
+        .mask(
+            maskShape
+        )
+    }
+    
     var maskShape: some View {
         Rectangle()
             .border(Color.white)
-            .offset(y: max(CGFloat(90 - ((Double(self.tasks.completedTasks.count) / Double(self.rewards.lowestRequiredCompletedTaskCount())) * 90)), 0))
+            .offset(y: max(CGFloat(100 - ((Double(self.tasks.completedTasks.count) / Double(self.rewards.lowestRequiredCompletedTaskCount)) * 100)), 0))
             .animation(.default)
     }
 }

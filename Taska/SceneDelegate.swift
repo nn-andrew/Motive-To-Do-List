@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftUI
-import PartialSheet
+//import PartialSheet
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -25,6 +25,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
+            
+            //MARK: Modify list appearance
+            UITableView.appearance().separatorColor = .clear
+            UITableView.appearance().backgroundColor = .clear
+            UITableViewCell.appearance().backgroundColor = .clear
+            
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window

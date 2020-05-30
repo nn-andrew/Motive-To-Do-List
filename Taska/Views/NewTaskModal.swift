@@ -27,7 +27,6 @@ struct NewTaskModal: View {
                 self.tasks.addTask(task: self.task)
                 self.tasks.calculatePercentageCompleted()
                 self.partialSheetManager.closePartialSheet()
-
             })
         }
     }

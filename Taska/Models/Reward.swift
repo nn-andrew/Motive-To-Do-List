@@ -14,6 +14,7 @@ class Rewards: ObservableObject {
     var rewards = [Reward]()
     var completedRewards: [Reward] = []
     var percentageCompleted: Double = 0
+    @Published var lowestRequiredCompletedTaskCount: Int = -1
     
     func addReward(reward: Reward) {
         rewards.append(reward)
@@ -59,11 +60,11 @@ class Rewards: ObservableObject {
 //        }
 //    }
     
-    func lowestRequiredCompletedTaskCount() -> Int {
+    func calculateLowestRequiredCompletedTaskCount() {
         if rewards.count == 0 {
-            return -1
+            lowestRequiredCompletedTaskCount = -1
         } else {
-            return rewards[0].completedTasksNeeded
+            lowestRequiredCompletedTaskCount = rewards[0].completedTasksNeeded
         }
     }
     
@@ -72,7 +73,7 @@ class Rewards: ObservableObject {
 //        print(completedTasksCount, reward.completedTasksNeeded)
         if rewards.count > 0 {
             if completedTasksCount >= rewards[0].completedTasksNeeded {
-                transferReward(reward: rewards[0])
+                //transferReward(reward: rewards[0])
                 return true
             }
         }
