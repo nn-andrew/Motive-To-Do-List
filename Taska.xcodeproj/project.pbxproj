@@ -18,6 +18,7 @@
 		AB66D6232464B0D200059E67 /* GiftBoxSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */; };
 		AB66D6272465380900059E67 /* RewardReachedModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6262465380900059E67 /* RewardReachedModal.swift */; };
 		AB66D6372480E81000059E67 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = AB66D6362480E81000059E67 /* PartialSheet */; };
+		AB66D6442484BCFF00059E67 /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6432484BCFE00059E67 /* TextEditor.swift */; };
 		AB6E5C112457ABC8006A7AC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */; };
 		AB6E5C132457ABC8006A7AC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */; };
 		AB6E5C172457ABCD006A7AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6E5C162457ABCD006A7AC0 /* Assets.xcassets */; };
@@ -55,6 +56,8 @@
 		AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBoxSubview.swift; sourceTree = "<group>"; };
 		AB66D6262465380900059E67 /* RewardReachedModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardReachedModal.swift; sourceTree = "<group>"; };
 		AB66D63A2480EBAE00059E67 /* PartialSheet */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PartialSheet; path = ../../../../Desktop/PartialSheet; sourceTree = "<group>"; };
+		AB66D6432484BCFE00059E67 /* TextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditor.swift; sourceTree = "<group>"; };
+		AB66D6452484C0A700059E67 /* Taska-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Taska-Prefix.pch"; sourceTree = "<group>"; };
 		AB6E5C0D2457ABC8006A7AC0 /* Taska.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taska.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 				AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */,
 				AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */,
 				AB6E5C5A2460F6F1006A7AC0 /* SystemServices.swift */,
+				AB66D6452484C0A700059E67 /* Taska-Prefix.pch */,
 				AB6E5C162457ABCD006A7AC0 /* Assets.xcassets */,
 				AB6E5C1B2457ABCD006A7AC0 /* LaunchScreen.storyboard */,
 				AB6E5C1E2457ABCD006A7AC0 /* Info.plist */,
@@ -171,6 +175,7 @@
 				AB6E5C46245C083B006A7AC0 /* ContentView.swift */,
 				AB6E5C45245C083B006A7AC0 /* TasksView.swift */,
 				AB6E5C47245C083B006A7AC0 /* TaskItemSubview.swift */,
+				AB66D6432484BCFE00059E67 /* TextEditor.swift */,
 				AB66D6132462995200059E67 /* DashboardSubview.swift */,
 				AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */,
 				AB6E5C53245E5308006A7AC0 /* NewTaskModal.swift */,
@@ -313,6 +318,7 @@
 				AB66D6182463FAD300059E67 /* NewRewardModal.swift in Sources */,
 				AB66D6272465380900059E67 /* RewardReachedModal.swift in Sources */,
 				AB6E5C4E245C083C006A7AC0 /* Task.swift in Sources */,
+				AB66D6442484BCFF00059E67 /* TextEditor.swift in Sources */,
 				AB6E5C4D245C083C006A7AC0 /* TaskItemSubview.swift in Sources */,
 				AB6E5C5B2460F6F1006A7AC0 /* SystemServices.swift in Sources */,
 				AB6E5C4C245C083C006A7AC0 /* ContentView.swift in Sources */,
@@ -390,6 +396,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Taska-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -448,6 +455,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Taska-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

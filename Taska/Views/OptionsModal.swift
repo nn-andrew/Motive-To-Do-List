@@ -14,14 +14,22 @@ struct OptionsModal: View {
     @EnvironmentObject var tasks: Tasks
     
     var body: some View {
-        VStack {
-            Button(action: {
-                self.tasks.removeAllCompletedTasks()
-//                self.partialSheetManager.closePartialSheet()
-            }) {
-                Text("Remove all completed tasks")
+        GeometryReader { geo in
+            VStack {
+                Button(action: {
+                    self.tasks.removeAllCompletedTasks()
+    //                self.partialSheetManager.closePartialSheet()
+                }) {
+                    HStack {
+                        Text("Remove all completed tasks")
+                        Spacer()
+                    }
+                }
             }
         }
+        .padding([.top, .bottom], 10)
+        .padding([.leading, .trailing], 30)
+        .frame(height: 100)
     }
 }
 

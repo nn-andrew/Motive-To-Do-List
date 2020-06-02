@@ -18,7 +18,7 @@ struct NewRewardModal: View {
     @State var isTextFieldFirstResponder: Bool? = true
     @State var isTempFirstResponder: Bool? = false
     @State var new_title: String = String("")
-    @State var completedTasksNeeded: Int = 0
+    @State var completedTasksNeeded: Int = 1
     
     var completedTasksNeededRange = ["1","2","3","4","5","6","7","8","9","10"]
     
@@ -41,9 +41,10 @@ struct NewRewardModal: View {
 //                    .border(Color.green)
                 Spacer()
             }
-            .padding(.top, 16)
+            .padding([.top, .bottom], 10)
 //            .frame(height: geo.size.height)
         }
+        .frame(height: 160)
 //        .border(Color.blue)
     }
     

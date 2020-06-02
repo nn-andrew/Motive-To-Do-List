@@ -21,14 +21,19 @@ struct NewTaskModal: View {
     
     var body: some View {
         GeometryReader { geo in
-            // Sets the task title after user inputs into text field
-            TextField("Add task title", text: self.$new_title, onCommit: {
-                self.task.changeTitle(new_title: Text(self.new_title))
-                self.tasks.addTask(task: self.task)
-                self.tasks.calculatePercentageCompleted()
-                self.partialSheetManager.closePartialSheet()
-            })
+            VStack {
+                // Sets the task title after user inputs into text field
+                TextField("Add task title", text: self.$new_title, onCommit: {
+                    self.task.changeTitle(new_title: self.new_title)
+                    self.tasks.addTask(task: self.task)
+                    self.tasks.calculatePercentageCompleted()
+                    self.partialSheetManager.closePartialSheet()
+                })
+                Spacer()
+            }
         }
+        .padding([.top, .bottom], 10)
+        .frame(height: 160)
     }
 }
 
