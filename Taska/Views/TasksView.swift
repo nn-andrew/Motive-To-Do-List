@@ -79,30 +79,36 @@ struct TasksView: View {
                         //MARK: Version 1
 //                        List(Array(Array(self.tasks.tasks + self.tasks.completedTasks).enumerated()), id: \.element.id) { i, item in
                         
-                        List(self.tasks.tasks + self.tasks.completedTasks) { item in
-                            TaskItemSubview(task: item, title: item.title)
-//                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                                .padding(-2)
-                        }
+//                        List(self.tasks.tasks + self.tasks.completedTasks) { item in
+//                            TaskItemSubview(task: item, title: item.title)
+////                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+//                                .padding(-2)
+//                        }
+//                        .transition(.opacity)
+//                        .animation(self.tasks.animated ? .default : .none)
+//                        .buttonStyle(PlainButtonStyle())
+//                        .edgesIgnoringSafeArea(.all)
+//                        .environment(\.defaultMinListRowHeight, 10)
+//                        .padding([.top, .bottom], 10)
+//                        .frame(width: geo.size.width)
+//                        .frame(maxHeight: geo.size.height)
+
+                        //MARK: Version 2
+                        ScrollView {
+                            ForEach((Array(Array(self.tasks.tasks + self.tasks.completedTasks).enumerated())), id: \.element.id) { i, item in
+                                TaskItemSubview(task: item, title: item.title)
+                                .padding(-1)
+                            }
                         .transition(.opacity)
                         .animation(self.tasks.animated ? .default : .none)
                         .buttonStyle(PlainButtonStyle())
-                        .edgesIgnoringSafeArea(.all)
+//                        .edgesIgnoringSafeArea(.all)
                         .environment(\.defaultMinListRowHeight, 10)
-                        .padding([.top, .bottom], 10)
+                        .padding(10)
                         .frame(width: geo.size.width)
                         .frame(maxHeight: geo.size.height)
-
-                        //MARK: Version 2
-//                        List {
-//                            ForEach((Array(Array(self.tasks.tasks + self.tasks.completedTasks).enumerated()), id: \.element.id) { i, item in
-//                                TaskItemSubview(task: item)
-//                                    .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-//                            }
-//                        }
-//                        .buttonStyle(PlainButtonStyle())
-//                        .edgesIgnoringSafeArea(.all)
-//                        .frame(width: geo.size.width, height: geo.size.height)
+                        }
+                        .padding([.top, .bottom], 10)
                         
                         
 //                        if self.tasks.tasks.count == 0 {

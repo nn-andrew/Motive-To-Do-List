@@ -113,13 +113,18 @@ struct TaskItemSubview: View {
                             }
                         }
                         GeometryReader { geo1 in
-                            TextEditor(text: self.$title, task: self.task, desiredHeight: self.$desiredHeight)//, isHeightAdjustable: true)
-    //                            , onCommit: {
-    //                            self.task.title = self.title
-    //                        })
-                                .foregroundColor(self.task.taskDone ? Color.white : Color.black)
-                                .padding(.trailing, 10)
-                                .frame(width: geo1.size.width, height: self.desiredHeight)
+                            VStack {
+                                Spacer()
+                                TextEditor(text: self.$title, task: self.task, desiredHeight: self.$desiredHeight, viewMinHeight: self.viewMinHeight)//, isHeightAdjustable: true)
+        //                            , onCommit: {
+        //                            self.task.title = self.title
+        //                        })
+                                    .foregroundColor(self.task.taskDone ? Color.white : Color.black)
+                                    .padding(.trailing, 10)
+                                    .frame(width: geo1.size.width, height: self.desiredHeight + 1)
+                                Spacer()
+                            }
+                            .frame(height: geo1.size.height)
                         }
                         Spacer()
                     }

@@ -13,10 +13,11 @@ public struct TextEditor: View {
     @Binding public var text: String
     var task: Task
     @Binding var desiredHeight: CGFloat
+    var viewMinHeight: CGFloat
 //    var isHeightAdjustable: Bool
     
     public var body: some View {
-        TextField_UI(text: $text, task: task, desiredHeight: $desiredHeight, onEditingChanged: {_ in
+        TextField_UI(text: $text, task: task, desiredHeight: $desiredHeight, viewMinHeight: viewMinHeight, onEditingChanged: {_ in
             
         }, onCommit: {
             
@@ -31,6 +32,7 @@ struct TextField_UI : UIViewRepresentable {
     @Binding var text: String//?
     var task: Task
     @Binding var desiredHeight: CGFloat
+    var viewMinHeight: CGFloat
 //    var isHeightAdjustable: Bool
     var onEditingChanged: ((String) -> Void)
     var onCommit: (() -> Void)
@@ -91,7 +93,7 @@ struct TextField_UI : UIViewRepresentable {
         let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
         
         DispatchQueue.main.async {
-            self.desiredHeight = newSize.height
+            self.desiredHeight =  newSize.height
         }
     }
     
