@@ -85,7 +85,7 @@ struct TextField_UI : UIViewRepresentable {
         
         setHeight(textView: textView)
         
-        print(self.desiredHeight)
+//        print(self.desiredHeight)
     }
     
     func setHeight(textView: UITextView) {

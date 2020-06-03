@@ -11,10 +11,11 @@ import Foundation
 
 
 class Rewards: ObservableObject {
+    @EnvironmentObject var tasks: Tasks
     var rewards = [Reward]()
-    var completedRewards: [Reward] = []
+//    var completedRewards: [Reward] = []
     var percentageCompleted: Double = 0
-    @Published var lowestRequiredCompletedTaskCount: Int = -1
+    @Published var lowestRequiredTotalCompletedTaskCount: Int = 1
     
     func addReward(reward: Reward) {
         rewards.append(reward)
@@ -26,23 +27,17 @@ class Rewards: ObservableObject {
         print(rewards)
     }
     
-    func transferReward(reward: Reward) {
+    func removeReward() {
         print("hi2")
-        if let index = rewards.firstIndex(where: {$0.id == reward.id}) {
-            rewards.remove(at: index)
-            completedRewards.insert(reward, at: 0)
-        } else {
-            if let index = completedRewards.firstIndex(where: {$0.id == reward.id}) {
-                completedRewards.remove(at: index)
-                rewards.insert(reward, at: 0)
-            }
-        }
-        calculatePercentageCompleted()
+        rewards.remove(at: 0)
+
+        calculatelowestRequiredTotalCompletedTaskCount()
+//        calculatePercentageCompleted()
     }
     
-    func calculatePercentageCompleted() {
-        percentageCompleted = Double(completedRewards.count) / Double(rewards.count + completedRewards.count)
-    }
+//    func calculatePercentageCompleted() {
+//        percentageCompleted = Double(completedRewards.count) / Double(rewards.count + completedRewards.count)
+//    }
     
 //    func upcomingReward() -> Reward {
 //        if rewards.count == 0 {
@@ -60,11 +55,11 @@ class Rewards: ObservableObject {
 //        }
 //    }
     
-    func calculateLowestRequiredCompletedTaskCount() {
+    func calculatelowestRequiredTotalCompletedTaskCount() {
         if rewards.count == 0 {
-            lowestRequiredCompletedTaskCount = -1
+            lowestRequiredTotalCompletedTaskCount = 1
         } else {
-            lowestRequiredCompletedTaskCount = rewards[0].completedTasksNeeded
+            lowestRequiredTotalCompletedTaskCount = rewards[0].completedTasksNeeded
         }
     }
     

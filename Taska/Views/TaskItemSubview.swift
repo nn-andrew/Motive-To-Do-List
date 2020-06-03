@@ -8,6 +8,7 @@
 
 import SwiftUI
 import PartialSheet
+import UIKit
 
 struct TaskItemSubview: View {
     @EnvironmentObject var partialSheetManager: PartialSheetManager
@@ -23,12 +24,19 @@ struct TaskItemSubview: View {
     @State var desiredHeight: CGFloat = 60
     
     var viewMinHeight = CGFloat(60)
-    var maxDragDistance = CGFloat(-50)
+    var maxDragDistance = CGFloat(-70)
     
     var body: some View {
         GeometryReader { geo in
 //            HStack {
                 ZStack {
+                    RoundedRectangle(cornerRadius: 18)
+//                        .stroke(Color.red)
+                        .shadow(color: Colors.blue2, radius: 3, x: 0, y: 2)
+                        .opacity(0.1)
+//                        .clipShape(
+//                            RoundedRectangle(cornerRadius: 18)
+//                        )
                     RoundedRectangle(cornerRadius: 18)
                         .fill(Colors.red2)
 //                        .opacity(1)
@@ -46,7 +54,7 @@ struct TaskItemSubview: View {
                             .padding(.trailing, 16)
                             .offset(x: { () -> CGFloat in
                                 if self.offset.width < 0 {
-                                    if self.offset.width + 20 < self.maxDragDistance {
+                                    if self.offset.width < self.maxDragDistance {
                                         return 0
                                     }
                                     return self.offset.width + 70
@@ -79,16 +87,33 @@ struct TaskItemSubview: View {
                                 self.task.taskDone.toggle()
                                 self.lightImpact()
                                 self.tasks.transferTask(task: self.task)
-//                                if self.task.taskDone == true {
+                                if self.task.taskDone == true {
 //                                    self.task.title = self.task.titleWithStrikethrough
-//                                    self.rewards.calculateLowestRequiredCompletedTaskCount()
-//                                    if self.rewards.isRewardReached(completedTasksCount: self.tasks.completedTasks.count) {
-//                                        self.rewardReached = true
-//                                    }
-//                                } else {
+                                    self.tasks.totalCompletedTasksCount += 1
+                                    self.rewards.calculatelowestRequiredTotalCompletedTaskCount()
+                                    
+                                    if self.rewards.isRewardReached(completedTasksCount: self.tasks.totalCompletedTasksCount) {
+                                        self.rewardReached = true
+                                        self.partialSheetManager.showPartialSheet({
+                                            self.rewards.removeReward()
+                                            self.tasks.tasksAlreadyRewardedCount = self.tasks.totalCompletedTasksCount
+                                        }) {
+                                            RewardReachedModal()
+                                                .environmentObject(self.rewards)
+                                                .frame(height: UIScreen.main.bounds.size.height * 0.6)
+                                        }
+                                        
+                                    }
+                                } else {
+                                    if self.tasks.totalCompletedTasksCount - 1 >= 0 && self.tasks.totalCompletedTasksCount > self.tasks.tasksAlreadyRewardedCount {
+                                        self.tasks.totalCompletedTasksCount -= 1
+                                    }
+                                    if self.rewards.lowestRequiredTotalCompletedTaskCount - 1 >= 0 {
+                                        self.rewards.lowestRequiredTotalCompletedTaskCount -= 1
+                                    }
 //                                    self.task.title = self.task.titleWithoutStrikethrough
-//                                }
-                                
+                                }
+                                print(self.tasks.totalCompletedTasksCount-self.tasks.tasksAlreadyRewardedCount, self.rewards.lowestRequiredTotalCompletedTaskCount-self.tasks.tasksAlreadyRewardedCount)
                             }) {
                                 ZStack {
                                     Rectangle()
@@ -102,15 +127,15 @@ struct TaskItemSubview: View {
                                         .frame(width: 30, height: 30)
                                 }
                             }
-                            .sheet(isPresented: self.$rewardReached, onDismiss:
-                                {
-                                    self.rewards.transferReward(reward: self.rewards.rewards[0])
-                                    self.rewards.calculateLowestRequiredCompletedTaskCount()
-
-                            }) {
-                                RewardReachedModal()
-                                    .environmentObject(self.rewards)
-                            }
+//                            .sheet(isPresented: self.$rewardReached, onDismiss:
+//                                {
+//                                    self.rewards.transferReward(reward: self.rewards.rewards[0])
+//                                    self.rewards.calculatelowestRequiredTotalCompletedTaskCount()
+//
+//                            }) {
+//                                RewardReachedModal()
+//                                    .environmentObject(self.rewards)
+//                            }
                         }
                         GeometryReader { geo1 in
                             VStack {
@@ -134,7 +159,7 @@ struct TaskItemSubview: View {
         }
 //        .offset(x: offset.width < 0 ? offset.width : 0, y: 0)
 //        .frame(minHeight: self.viewMinHeight)
-        .frame(height: max(self.desiredHeight + 10, self.viewMinHeight))
+        .frame(height: max(self.desiredHeight+10, self.viewMinHeight))
 
         .gesture(
             DragGesture(minimumDistance: 20, coordinateSpace: .local)

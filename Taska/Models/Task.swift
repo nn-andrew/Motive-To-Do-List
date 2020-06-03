@@ -16,8 +16,10 @@ class Tasks: ObservableObject {
 //    var tasks = [Task]()
     var completedTasks: [Task] = []
     var totalTasksCount: Int = 0
+    var totalCompletedTasksCount: Int = 0
+    var tasksAlreadyRewardedCount = 0
     @Published var percentageCompleted: Double = 0
-    @Published var animated = false
+    @Published var animated = true
     
     func addTask(task: Task) {
         tasks.insert(task, at: 0)

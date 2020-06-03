@@ -11,6 +11,7 @@ import PartialSheet
 
 struct NewRewardModal: View {
     @EnvironmentObject var partialSheetManager: PartialSheetManager
+    @EnvironmentObject var tasks: Tasks
     @EnvironmentObject var rewards: Rewards
     
     //@Binding var isPresented: Bool
@@ -30,9 +31,12 @@ struct NewRewardModal: View {
                 // Sets the reward title after user inputs into text field
                 TextField("Add reward title", text: self.$new_title, onCommit: {
                     self.reward.changeTitle(new_title: Text(self.new_title))
-                    self.reward.changeCompletedTasksNeeded(completedTasksNeeded: self.completedTasksNeeded)
+                    self.reward.changeCompletedTasksNeeded(completedTasksNeeded: self.completedTasksNeeded + self.tasks.totalCompletedTasksCount)
                     self.rewards.addReward(reward: self.reward)
-                    self.rewards.calculatePercentageCompleted()
+                    if self.reward.completedTasksNeeded == self.rewards.rewards[0].completedTasksNeeded {
+                        self.rewards.calculatelowestRequiredTotalCompletedTaskCount()
+                    }
+//                    self.rewards.calculatePercentageCompleted()
                     self.partialSheetManager.closePartialSheet()
                 })
 //                    .border(Color.red)

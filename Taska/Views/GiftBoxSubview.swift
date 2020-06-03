@@ -130,12 +130,12 @@ struct GiftBoxSubview: View {
                     .offset(y: 5)
             }
             
-            VStack {
-                RoundedRectangle(cornerRadius: 6)
-                    .fill(Colors.red1)
-                    .frame(width: 23, height: 28)
-                    .offset(y: -18)
-            }
+//            VStack {
+//                RoundedRectangle(cornerRadius: 6)
+//                    .fill(Colors.red1)
+//                    .frame(width: 23, height: 28)
+//                    .offset(y: -18)
+//            }
             VStack {
                 RoundedRectangle(cornerRadius: 0)
                     .fill(Colors.red1)
@@ -152,7 +152,7 @@ struct GiftBoxSubview: View {
     var maskShape: some View {
         Rectangle()
             .border(Color.white)
-            .offset(y: max(CGFloat(100 - ((Double(self.tasks.completedTasks.count) / Double(self.rewards.lowestRequiredCompletedTaskCount)) * 100)), 0))
+            .offset(y: self.rewards.rewards.count > 0 ? max(CGFloat(100 - ((Double(self.tasks.totalCompletedTasksCount - self.tasks.tasksAlreadyRewardedCount) / Double(max(self.rewards.lowestRequiredTotalCompletedTaskCount - self.tasks.tasksAlreadyRewardedCount, 1))) * 100)), 0) : 100)
             .animation(.default)
     }
 }

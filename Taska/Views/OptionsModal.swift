@@ -18,10 +18,20 @@ struct OptionsModal: View {
             VStack {
                 Button(action: {
                     self.tasks.removeAllCompletedTasks()
-    //                self.partialSheetManager.closePartialSheet()
+                    self.partialSheetManager.closePartialSheet()
                 }) {
                     HStack {
                         Text("Remove all completed tasks")
+                        Spacer()
+                    }
+                }
+                Spacer()
+                Button(action: {
+                    self.tasks.removeAllCompletedTasks()
+                    self.partialSheetManager.closePartialSheet()
+                }) {
+                    HStack {
+                        Text("View credits")
                         Spacer()
                     }
                 }
@@ -29,7 +39,7 @@ struct OptionsModal: View {
         }
         .padding([.top, .bottom], 10)
         .padding([.leading, .trailing], 30)
-        .frame(height: 100)
+        .frame(height: 200)
     }
 }
 
