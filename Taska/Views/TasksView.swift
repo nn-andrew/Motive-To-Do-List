@@ -93,20 +93,29 @@ struct TasksView: View {
 //                        .frame(width: geo.size.width)
 //                        .frame(maxHeight: geo.size.height)
 
-                        //MARK: Version 2
-                        ScrollView {
-                            ForEach((Array(Array(self.tasks.tasks + self.tasks.completedTasks).enumerated())), id: \.element.id) { i, item in
-                                TaskItemSubview(task: item, title: item.title)
-                                .padding(-1)
+                        ZStack {
+//                            Image("avatar")
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(width: 200, height: 200)
+//                                .animation(.easeOut(duration: 1))
+//                                .opacity(self.tasks.tasks.count == 0 ? 0.7 : 0)
+                            
+                            //MARK: Version 2
+                            ScrollView {
+                                ForEach((Array(Array(self.tasks.tasks + self.tasks.completedTasks).enumerated())), id: \.element.id) { i, item in
+                                    TaskItemSubview(task: item, title: item.title)
+                                    .padding(-1)
+                                }
+                            .transition(.opacity)
+                            .animation(self.tasks.animated ? .default : .none)
+                            .buttonStyle(PlainButtonStyle())
+    //                        .edgesIgnoringSafeArea(.all)
+                            .environment(\.defaultMinListRowHeight, 10)
+                            .padding(10)
+                            .frame(width: geo.size.width)
+                            .frame(maxHeight: geo.size.height)
                             }
-                        .transition(.opacity)
-                        .animation(self.tasks.animated ? .default : .none)
-                        .buttonStyle(PlainButtonStyle())
-//                        .edgesIgnoringSafeArea(.all)
-                        .environment(\.defaultMinListRowHeight, 10)
-                        .padding(10)
-                        .frame(width: geo.size.width)
-                        .frame(maxHeight: geo.size.height)
                         }
                         .padding([.top, .bottom], 10)
                         
@@ -184,7 +193,7 @@ struct TasksView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 18)
                     .fill(Colors.blue2)
-                    .opacity(0.2)
+                    .opacity(0.3)
                     .frame(width: geo.size.width, height: geo.size.height)
                 .frame(height: 60)
                 HStack {
@@ -192,14 +201,14 @@ struct TasksView: View {
                         .fill(Color.white)
                         .opacity(0.8)
                         .mask(
-                            Image("add")
+                            Image("plus")
                             .resizable()
                             .scaledToFit()
                         )
                         .frame(width: 30, height: 30)
                     Spacer()
                 }
-                .padding(.leading, 12)
+                .padding(.leading, 16)
             }
         }
     }
@@ -209,21 +218,21 @@ struct TasksView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 18)
                     .fill(Colors.blue2)
-                    .opacity(0.2)
+                    .opacity(0.3)
                     .frame(width: geo.size.width, height: geo.size.height)
                 HStack {
                     Rectangle()
                         .fill(Color.white)
                         .opacity(0.8)
                         .mask(
-                            Image("giftClosed")
+                            Image("star")
                             .resizable()
                             .scaledToFit()
                         )
-                        .frame(width: 30, height: 30)
+                        .frame(width: 36, height: 36)
                     Spacer()
                 }
-                .padding(.leading, 12)
+                .padding(.leading, 16)
             }
         }
     }

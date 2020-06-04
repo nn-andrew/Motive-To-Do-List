@@ -12,8 +12,8 @@ import Foundation
 
 class Tasks: ObservableObject {
     var rewards: Rewards = Rewards()
-    var tasks = [Task(), Task(), Task(), Task()]
-//    var tasks = [Task]()
+//    var tasks = [Task(), Task(), Task(), Task()]
+    var tasks = [Task]()
     var completedTasks: [Task] = []
     var totalTasksCount: Int = 0
     var totalCompletedTasksCount: Int = 0

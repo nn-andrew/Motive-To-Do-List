@@ -17,6 +17,7 @@ struct AboutView: View {
                 Spacer()
             }
             .frame(width: geo.size.width, height: geo.size.height)
+            .font(.system(size: 14))
         }
     }
 }

@@ -15,24 +15,17 @@ struct OptionsModal: View {
     
     var body: some View {
         GeometryReader { geo in
-            NavigationView {
-                VStack(spacing: 20) {
-                    Button(action: {
-                        self.tasks.removeAllCompletedTasks()
-                        self.partialSheetManager.closePartialSheet()
-                    }) {
-//                        HStack {
-                            Text("Remove all completed tasks")
-//                            Spacer()
-//                        }
-                    }
-                    NavigationLink(destination: AboutView().frame(height: geo.size.height)) {
-                        Text("About")
-                    }
-                    Spacer()
+            VStack(spacing: 20) {
+                Button(action: {
+                    self.tasks.removeAllCompletedTasks()
+                    self.partialSheetManager.closePartialSheet()
+                }) {
+                    Text("Remove all completed tasks")
                 }
-                .frame(width: geo.size.width, height: geo.size.height)
+                AboutView()
             }
+            .frame(width: geo.size.width, height: geo.size.height)
+
 //            .navigationBarTitle("")
 //            .navigationBarHidden(true)
             .frame(height: geo.size.height)
