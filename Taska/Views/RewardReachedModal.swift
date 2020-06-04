@@ -42,7 +42,8 @@ struct RewardReachedModal: View {
                         .padding(.bottom, 40)
                     Button(action: {
                         self.rewards.removeReward()
-                        self.tasks.completedTasksForNextReward = 0
+                        self.rewards.updateUpcomingReward()
+//                        self.tasks.completedTasksForNextReward = 0
                         self.partialSheetManager.closePartialSheet()
                     }) {
 //                        ZStack {

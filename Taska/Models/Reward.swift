@@ -15,24 +15,33 @@ class Rewards: ObservableObject {
     var rewards = [Reward]()
 //    var completedRewards: [Reward] = []
     var percentageCompleted: Double = 0
-    @Published var lowestRequiredTotalCompletedTaskCount: Int = 1
+//    @Published var lowestRequiredTotalCompletedTaskCount: Int = 1
+    @Published var upcomingReward: Reward = Reward()
     
     func addReward(reward: Reward) {
+//        var shouldUpdate: Bool = true
+        if let index = rewards.firstIndex(where: {$0.completedTasksNeeded - $0.completedTasks == reward.completedTasksNeeded - reward.completedTasks}) {
+            rewards.remove(at: index)
+//            shouldUpdate = false
+        }
         rewards.append(reward)
         if rewards.count > 1 {
             rewards.sort {
                 $0.completedTasksNeeded < $1.completedTasksNeeded
             }
         }
-        calculatelowestRequiredTotalCompletedTaskCount()
+//        if shouldUpdate {
+            updateUpcomingReward()
+//        }
         print(rewards)
     }
     
     func removeReward() {
-        print("hi2")
-        rewards.remove(at: 0)
+        if rewards.count > 0 {
+            rewards.remove(at: 0)
+        }
 
-        calculatelowestRequiredTotalCompletedTaskCount()
+        updateUpcomingReward()
 //        calculatePercentageCompleted()
     }
     
@@ -40,35 +49,41 @@ class Rewards: ObservableObject {
 //        percentageCompleted = Double(completedRewards.count) / Double(rewards.count + completedRewards.count)
 //    }
     
-//    func upcomingReward() -> Reward {
+//    func updateUpcomingReward() -> Reward {
 //        if rewards.count == 0 {
 //            return Reward()
 //        } else {
-//            var upcomingReward = rewards[0]
+//            var updateUpcomingReward = rewards[0]
 //
 //            for reward in rewards {
-//                if reward.completedTasksNeeded < upcomingReward.completedTasksNeeded {
-//                    upcomingReward = reward
+//                if reward.completedTasksNeeded < updateUpcomingReward.completedTasksNeeded {
+//                    updateUpcomingReward = reward
 //                }
 //            }
 //
-//            return upcomingReward
+//            return updateUpcomingReward
 //        }
 //    }
     
-    func calculatelowestRequiredTotalCompletedTaskCount() {
-        if rewards.count == 0 {
-            lowestRequiredTotalCompletedTaskCount = 1
-        } else {
-            lowestRequiredTotalCompletedTaskCount = rewards[0].completedTasksNeeded
+    func updateUpcomingReward() {
+        // determine the which reward is closest to being reached
+        var newUpcomingReward: Reward = Reward()
+//        var resultFound: Bool = false
+        for reward in rewards {
+            if reward.completedTasksNeeded - reward.completedTasks <= upcomingReward.completedTasksNeeded - upcomingReward.completedTasks {
+                newUpcomingReward = reward
+//                resultFound = true
+            }
         }
+        
+        upcomingReward = newUpcomingReward
     }
     
     func isRewardReached(completedTasksCount: Int) -> Bool {
         // returns true if a reward has been reached
 //        print(completedTasksCount, reward.completedTasksNeeded)
         if rewards.count > 0 {
-            if completedTasksCount >= rewards[0].completedTasksNeeded {
+            if upcomingReward.completedTasks >= upcomingReward.completedTasksNeeded {
                 //transferReward(reward: rewards[0])
                 return true
             }
@@ -86,7 +101,7 @@ class Reward: Identifiable & ObservableObject {
     var titleWithStrikethrough: Text
     var titleWithoutStrikethrough: Text
     var completedTasksNeeded: Int
-    
+    var completedTasks: Int
     var rewardDone = false
     
     
@@ -95,7 +110,8 @@ class Reward: Identifiable & ObservableObject {
         title = Text("temp")
         titleWithoutStrikethrough = Text("temp")
         titleWithStrikethrough = Text("temp").strikethrough(color: .white)
-        completedTasksNeeded = 1
+        completedTasksNeeded = 99
+        completedTasks = 0
     }
     
     func changeTitle(new_title: Text) {

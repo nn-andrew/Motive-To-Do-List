@@ -87,17 +87,20 @@ struct TaskItemSubview: View {
                                 self.task.taskDone.toggle()
                                 self.lightImpact()
                                 self.tasks.transferTask(task: self.task)
+                                self.rewards.updateUpcomingReward()
                                 if self.task.taskDone == true {
 //                                    self.task.title = self.task.titleWithStrikethrough
                                     self.tasks.totalCompletedTasksCount += 1
-                                    self.tasks.completedTasksForNextReward += 1
-                                    self.rewards.calculatelowestRequiredTotalCompletedTaskCount()
+                                    for reward in self.rewards.rewards {
+                                        reward.completedTasks += 1
+                                    }
                                     
-                                    if self.rewards.isRewardReached(completedTasksCount: self.tasks.completedTasksForNextReward) {
+                                    if self.rewards.isRewardReached(completedTasksCount: self.rewards.upcomingReward.completedTasks) {
                                         self.rewardReached = true
                                         self.partialSheetManager.showPartialSheet({
                                             self.rewards.removeReward()
-                                            self.tasks.completedTasksForNextReward = 0
+                                            self.rewards.updateUpcomingReward()
+//                                            self.tasks.completedTasksForNextReward = 0
                                         }) {
                                             RewardReachedModal()
                                                 .environmentObject(self.rewards)
@@ -106,18 +109,20 @@ struct TaskItemSubview: View {
                                         
                                     }
                                 } else {
-                                    if self.tasks.totalCompletedTasksCount - 1 >= 0 {
+                                    if self.tasks.totalCompletedTasksCount > 0 {
                                         self.tasks.totalCompletedTasksCount -= 1
                                     }
 //                                    if self.rewards.lowestRequiredTotalCompletedTaskCount - 1 >= 0 {
 //                                        self.rewards.lowestRequiredTotalCompletedTaskCount -= 1
 //                                    }
-                                    if self.tasks.completedTasksForNextReward - 1 >= 0 {
-                                        self.tasks.completedTasksForNextReward -= 1
+                                    for reward in self.rewards.rewards {
+                                        if reward.completedTasks > 0 {
+                                            reward.completedTasks -= 1
+                                        }
                                     }
 //                                    self.task.title = self.task.titleWithoutStrikethrough
                                 }
-                                print(Double(self.tasks.completedTasksForNextReward), Double(max(self.rewards.lowestRequiredTotalCompletedTaskCount, 1)))
+                                print(Double(self.rewards.upcomingReward.completedTasks), Double(self.rewards.upcomingReward.completedTasksNeeded))
                             }) {
                                 ZStack {
                                     Rectangle()
@@ -134,7 +139,7 @@ struct TaskItemSubview: View {
 //                            .sheet(isPresented: self.$rewardReached, onDismiss:
 //                                {
 //                                    self.rewards.transferReward(reward: self.rewards.rewards[0])
-//                                    self.rewards.calculatelowestRequiredTotalCompletedTaskCount()
+//                                    self.rewards.updateUpcomingReward()
 //
 //                            }) {
 //                                RewardReachedModal()

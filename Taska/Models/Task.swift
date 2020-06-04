@@ -17,7 +17,7 @@ class Tasks: ObservableObject {
     var completedTasks: [Task] = []
     var totalTasksCount: Int = 0
     var totalCompletedTasksCount: Int = 0
-    var completedTasksForNextReward: Int = 0
+//    var completedTasksForNextReward: Int = 0
     @Published var percentageCompleted: Double = 0
     @Published var animated = true
     
