@@ -24,6 +24,7 @@ class Rewards: ObservableObject {
                 $0.completedTasksNeeded < $1.completedTasksNeeded
             }
         }
+        calculatelowestRequiredTotalCompletedTaskCount()
         print(rewards)
     }
     

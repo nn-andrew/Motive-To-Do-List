@@ -90,13 +90,14 @@ struct TaskItemSubview: View {
                                 if self.task.taskDone == true {
 //                                    self.task.title = self.task.titleWithStrikethrough
                                     self.tasks.totalCompletedTasksCount += 1
+                                    self.tasks.completedTasksForNextReward += 1
                                     self.rewards.calculatelowestRequiredTotalCompletedTaskCount()
                                     
-                                    if self.rewards.isRewardReached(completedTasksCount: self.tasks.totalCompletedTasksCount) {
+                                    if self.rewards.isRewardReached(completedTasksCount: self.tasks.completedTasksForNextReward) {
                                         self.rewardReached = true
                                         self.partialSheetManager.showPartialSheet({
                                             self.rewards.removeReward()
-                                            self.tasks.tasksAlreadyRewardedCount = self.tasks.totalCompletedTasksCount
+                                            self.tasks.completedTasksForNextReward = 0
                                         }) {
                                             RewardReachedModal()
                                                 .environmentObject(self.rewards)
@@ -105,15 +106,18 @@ struct TaskItemSubview: View {
                                         
                                     }
                                 } else {
-                                    if self.tasks.totalCompletedTasksCount - 1 >= 0 && self.tasks.totalCompletedTasksCount > self.tasks.tasksAlreadyRewardedCount {
+                                    if self.tasks.totalCompletedTasksCount - 1 >= 0 {
                                         self.tasks.totalCompletedTasksCount -= 1
                                     }
-                                    if self.rewards.lowestRequiredTotalCompletedTaskCount - 1 >= 0 {
-                                        self.rewards.lowestRequiredTotalCompletedTaskCount -= 1
+//                                    if self.rewards.lowestRequiredTotalCompletedTaskCount - 1 >= 0 {
+//                                        self.rewards.lowestRequiredTotalCompletedTaskCount -= 1
+//                                    }
+                                    if self.tasks.completedTasksForNextReward - 1 >= 0 {
+                                        self.tasks.completedTasksForNextReward -= 1
                                     }
 //                                    self.task.title = self.task.titleWithoutStrikethrough
                                 }
-                                print(self.tasks.totalCompletedTasksCount-self.tasks.tasksAlreadyRewardedCount, self.rewards.lowestRequiredTotalCompletedTaskCount-self.tasks.tasksAlreadyRewardedCount)
+                                print(Double(self.tasks.completedTasksForNextReward), Double(max(self.rewards.lowestRequiredTotalCompletedTaskCount, 1)))
                             }) {
                                 ZStack {
                                     Rectangle()
@@ -140,7 +144,7 @@ struct TaskItemSubview: View {
                         GeometryReader { geo1 in
                             VStack {
                                 Spacer()
-                                TextEditor(text: self.$title, task: self.task, desiredHeight: self.$desiredHeight, viewMinHeight: self.viewMinHeight)//, isHeightAdjustable: true)
+                                TextEditor(text: self.$title, task: self.task, desiredHeight: self.$desiredHeight, isFirstResponder: false, onCommit: {})//, isHeightAdjustable: true)
         //                            , onCommit: {
         //                            self.task.title = self.title
         //                        })

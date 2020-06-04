@@ -30,14 +30,19 @@ struct NewRewardModal: View {
             VStack() {
                 // Sets the reward title after user inputs into text field
                 TextField("Add reward title", text: self.$new_title, onCommit: {
-                    self.reward.changeTitle(new_title: Text(self.new_title))
-                    self.reward.changeCompletedTasksNeeded(completedTasksNeeded: self.completedTasksNeeded + self.tasks.totalCompletedTasksCount)
-                    self.rewards.addReward(reward: self.reward)
-                    if self.reward.completedTasksNeeded == self.rewards.rewards[0].completedTasksNeeded {
-                        self.rewards.calculatelowestRequiredTotalCompletedTaskCount()
+                    if self.new_title != "" {
+                        self.reward.changeTitle(new_title: Text(self.new_title))
+                        self.reward.changeCompletedTasksNeeded(completedTasksNeeded: self.completedTasksNeeded)
+                        self.rewards.addReward(reward: self.reward)
+//                        self.rewards.calculatelowestRequiredTotalCompletedTaskCount()
+                        if self.reward.completedTasksNeeded == self.rewards.rewards[0].completedTasksNeeded {
+                            self.rewards.calculatelowestRequiredTotalCompletedTaskCount()
+                            self.tasks.completedTasksForNextReward = 0
+                        }
                     }
 //                    self.rewards.calculatePercentageCompleted()
                     self.partialSheetManager.closePartialSheet()
+                    print(Double(self.tasks.completedTasksForNextReward), Double(max(self.rewards.lowestRequiredTotalCompletedTaskCount, 1)))
                 })
 //                    .border(Color.red)
                 self.stepper

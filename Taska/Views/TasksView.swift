@@ -141,17 +141,8 @@ struct TasksView: View {
                             }
                             
                         }) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 18)
-                                    .fill(Colors.blue2)
-                                    .opacity(0.2)
-                                    .frame(minWidth: geo.size.width * 0.6, maxWidth: geo.size.width * 0.9, minHeight: 60, maxHeight: 60)
-    //                            HStack() {
-    //                                Spacer()
-    //                            }
-                                .frame(height: 60)
-                            }
-                            
+                            self.AddTaskButton
+                                .frame(minWidth: geo.size.width * 0.6, maxWidth: geo.size.width * 0.9, minHeight: 60, maxHeight: 60)
                         }
                         
                         Button(action: {
@@ -162,14 +153,8 @@ struct TasksView: View {
                                     .frame(width: geo.size.width * 0.8)
                             }
                         }) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 18)
-                                    .fill(Colors.blue2)
-                                    .opacity(0.2)
-                                    .frame(maxWidth: geo.size.width * 0.3, minHeight: 60, maxHeight: 60)
-                                    //.frame(height: 60)
-                            }
-                            
+                            self.AddRewardButton
+                                .frame(maxWidth: geo.size.width * 0.3, minHeight: 60, maxHeight: 60)
                         }
                     }
 //                    .position(x: geo.size.width * 0.5, y: geo.size.height * 0.32)
@@ -192,6 +177,55 @@ struct TasksView: View {
         }
         .addPartialSheet()
         .edgesIgnoringSafeArea(.bottom)
+    }
+    
+    var AddTaskButton: some View {
+        GeometryReader { geo in
+            ZStack {
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(Colors.blue2)
+                    .opacity(0.2)
+                    .frame(width: geo.size.width, height: geo.size.height)
+                .frame(height: 60)
+                HStack {
+                    Rectangle()
+                        .fill(Color.white)
+                        .opacity(0.8)
+                        .mask(
+                            Image("add")
+                            .resizable()
+                            .scaledToFit()
+                        )
+                        .frame(width: 30, height: 30)
+                    Spacer()
+                }
+                .padding(.leading, 12)
+            }
+        }
+    }
+    
+    var AddRewardButton: some View {
+        GeometryReader { geo in
+            ZStack {
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(Colors.blue2)
+                    .opacity(0.2)
+                    .frame(width: geo.size.width, height: geo.size.height)
+                HStack {
+                    Rectangle()
+                        .fill(Color.white)
+                        .opacity(0.8)
+                        .mask(
+                            Image("giftClosed")
+                            .resizable()
+                            .scaledToFit()
+                        )
+                        .frame(width: 30, height: 30)
+                    Spacer()
+                }
+                .padding(.leading, 12)
+            }
+        }
     }
 }
 

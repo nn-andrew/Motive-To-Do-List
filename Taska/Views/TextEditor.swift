@@ -10,18 +10,18 @@ import SwiftUI
 import Combine
 
 public struct TextEditor: View {
+    var placeholderText: String?
     @Binding public var text: String
     var task: Task
     @Binding var desiredHeight: CGFloat
-    var viewMinHeight: CGFloat
+    var isFirstResponder: Bool
+    var onCommit: (() -> Void)
 //    var isHeightAdjustable: Bool
     
     public var body: some View {
-        TextField_UI(text: $text, task: task, desiredHeight: $desiredHeight, viewMinHeight: viewMinHeight, onEditingChanged: {_ in
+        TextField_UI(text: $text, task: task, desiredHeight: $desiredHeight, isFirstResponder: isFirstResponder, onEditingChanged: {_ in
             
-        }, onCommit: {
-            
-        })
+        }, onCommit: self.onCommit)
     }
 }
 struct TextField_UI : UIViewRepresentable {
@@ -32,7 +32,7 @@ struct TextField_UI : UIViewRepresentable {
     @Binding var text: String//?
     var task: Task
     @Binding var desiredHeight: CGFloat
-    var viewMinHeight: CGFloat
+    var isFirstResponder: Bool
 //    var isHeightAdjustable: Bool
     var onEditingChanged: ((String) -> Void)
     var onCommit: (() -> Void)
@@ -57,6 +57,9 @@ struct TextField_UI : UIViewRepresentable {
 
         textView.translatesAutoresizingMaskIntoConstraints = false
         
+//        if isFirstResponder {
+//            textView.becomeFirstResponder()
+//        }
         
         textView.textContainerInset = .zero
 
@@ -96,13 +99,6 @@ struct TextField_UI : UIViewRepresentable {
             self.desiredHeight =  newSize.height
         }
     }
-    
-    
-//    func makeUITextViewHeightAdjustable(textView: UITextView) {
-//        textView.translatesAutoresizingMaskIntoConstraints = true
-//        textView.sizeToFit()
-//        textView.isScrollEnabled = true
-//    }
     
     class Coordinator: NSObject, UITextViewDelegate {
         var field: TextField_UI

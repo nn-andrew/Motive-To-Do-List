@@ -152,7 +152,7 @@ struct GiftBoxSubview: View {
     var maskShape: some View {
         Rectangle()
             .border(Color.white)
-            .offset(y: self.rewards.rewards.count > 0 ? max(CGFloat(100 - ((Double(self.tasks.totalCompletedTasksCount - self.tasks.tasksAlreadyRewardedCount) / Double(max(self.rewards.lowestRequiredTotalCompletedTaskCount - self.tasks.tasksAlreadyRewardedCount, 1))) * 100)), 0) : 100)
+            .offset(y: self.rewards.rewards.count > 0 ? 100 - CGFloat(Double(self.tasks.completedTasksForNextReward) / Double(max(self.rewards.lowestRequiredTotalCompletedTaskCount, 1))) * 100 : 100)
             .animation(.default)
     }
 }
