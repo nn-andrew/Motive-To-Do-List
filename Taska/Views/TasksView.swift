@@ -93,7 +93,7 @@ struct TasksView: View {
 //                        .frame(width: geo.size.width)
 //                        .frame(maxHeight: geo.size.height)
 
-                        ZStack {
+                        VStack {
 //                            Image("avatar")
 //                                .resizable()
 //                                .scaledToFit()
@@ -118,22 +118,6 @@ struct TasksView: View {
                             }
                         }
                         .padding([.top, .bottom], 10)
-                        
-                        
-//                        if self.tasks.tasks.count == 0 {
-//                            HStack {
-//                                Spacer()
-//                            }
-//                        }
-//                        Capsule()
-//                            .fill(Colors.grey1)
-//                            .frame(width: 60, height: 10)
-//                            .padding(.top, 36)
-//                            .animation(.default)
-//                        ForEach(self.tasks.completedTasks) { completedTask in
-//                            TaskItemSubview(task: completedTask)
-//                            .animation(.default)
-//                        }
                     }
 //                    .padding(.top, -40)
 //                    .frame(width: 400)
@@ -166,6 +150,7 @@ struct TasksView: View {
                                 .frame(maxWidth: geo.size.width * 0.3, minHeight: 60, maxHeight: 60)
                         }
                     }
+                    .padding([.leading, .trailing], 20)
 //                    .position(x: geo.size.width * 0.5, y: geo.size.height * 0.32)
     //                .padding([.leading, .trailing], 100)
                     
@@ -173,14 +158,7 @@ struct TasksView: View {
                 }
                 .frame(height: geo.size.height-60)
                 .padding(.top, -30)
-                
-    //                    RewardReachedModal()
-    //                }
-    //            }
-    //            .addPartialSheet()
-    //            .navigationBarTitle("")
-    //            .navigationBarHidden(true)
-    //            .navigationBarBackButtonHidden(true)
+
             }
 //            .frame(width: geo.size.width, height: geo.size.height)
         }

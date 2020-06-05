@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB50357C248768E500E734D9 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB50357B248768E500E734D9 /* AboutView.swift */; };
+		AB50357E2489926400E734D9 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB50357D2489926400E734D9 /* HostingController.swift */; };
 		AB66D6122462250F00059E67 /* OptionsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6112462250F00059E67 /* OptionsModal.swift */; };
 		AB66D6142462995200059E67 /* DashboardSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6132462995200059E67 /* DashboardSubview.swift */; };
 		AB66D6162463F4F000059E67 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6152463F4F000059E67 /* Reward.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		AB50357B248768E500E734D9 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		AB50357D2489926400E734D9 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		AB66D6112462250F00059E67 /* OptionsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsModal.swift; sourceTree = "<group>"; };
 		AB66D6132462995200059E67 /* DashboardSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSubview.swift; sourceTree = "<group>"; };
 		AB66D6152463F4F000059E67 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				AB66D6192464938000059E67 /* Font */,
 				AB6E5C48245C083B006A7AC0 /* Models */,
 				AB6E5C44245C083B006A7AC0 /* Views */,
+				AB50357D2489926400E734D9 /* HostingController.swift */,
 				AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */,
 				AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */,
 				AB6E5C5A2460F6F1006A7AC0 /* SystemServices.swift */,
@@ -316,6 +319,7 @@
 				AB6E5C112457ABC8006A7AC0 /* AppDelegate.swift in Sources */,
 				AB6E5C132457ABC8006A7AC0 /* SceneDelegate.swift in Sources */,
 				AB66D6162463F4F000059E67 /* Reward.swift in Sources */,
+				AB50357E2489926400E734D9 /* HostingController.swift in Sources */,
 				AB66D6142462995200059E67 /* DashboardSubview.swift in Sources */,
 				AB6E5C4B245C083C006A7AC0 /* TasksView.swift in Sources */,
 				AB66D6182463FAD300059E67 /* NewRewardModal.swift in Sources */,

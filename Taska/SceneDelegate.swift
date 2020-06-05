@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             UITableViewCell.appearance().backgroundColor = .clear
             
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = HostingController(rootView: contentView)
             self.window = window
             window.makeKeyAndVisible()
         }

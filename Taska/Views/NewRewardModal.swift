@@ -20,6 +20,9 @@ struct NewRewardModal: View {
     @State var isTempFirstResponder: Bool? = false
     @State var new_title: String = String("")
     @State var completedTasksNeeded: Int = 1
+    @State var textColor: UIColor = UIColor.label
+    @State var desiredHeight: CGFloat = 0
+    @State var clearOnEdit: Bool = true
     
     var completedTasksNeededRange = ["1","2","3","4","5","6","7","8","9","10"]
     
@@ -29,7 +32,7 @@ struct NewRewardModal: View {
         GeometryReader { geo in
             VStack() {
                 // Sets the reward title after user inputs into text field
-                TextField("Add reward title", text: self.$new_title, onCommit: {
+                TextEditor(placeholderText: "Add reward title", text: self.$new_title, textColor: self.$textColor, desiredHeight: self.$desiredHeight, isFirstResponder: false, clearOnEdit: self.clearOnEdit, onCommit: {
                     if self.new_title != "" {
                         self.reward.changeTitle(new_title: Text(self.new_title))
                         self.reward.changeCompletedTasksNeeded(completedTasksNeeded: self.completedTasksNeeded)
@@ -45,9 +48,10 @@ struct NewRewardModal: View {
                     self.partialSheetManager.closePartialSheet()
 //                    print(Double(self.tasks.completedTasksForNextReward), Double(max(self.rewards.lowestRequiredTotalCompletedTaskCount, 1)))
                 })
+                    .frame(height: 40)
 //                    .border(Color.red)
                 self.stepper
-                    .offset(y: 10)
+//                    .offset(y: 10)
 //                    .border(Color.green)
                 Spacer()
             }
@@ -60,9 +64,10 @@ struct NewRewardModal: View {
     
     var stepper: some View {
         ZStack {
-            Stepper("Rewarded at:", value: self.$completedTasksNeeded, in: 1...99)
+            Stepper("Rewarded after:", value: self.$completedTasksNeeded, in: 1...25)
             Text(String(self.completedTasksNeeded))
-                .offset(x: -20)
+                .offset(x: -5)
+                .frame(width: 100)
         }
     }
     

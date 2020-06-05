@@ -22,6 +22,8 @@ struct TaskItemSubview: View {
     @State private var offset = CGSize.zero
     @State var title: String
     @State var desiredHeight: CGFloat = 60
+    @State var textColor: UIColor = UIColor.label
+    var clearOnEdit: Bool = false
     
     var viewMinHeight = CGFloat(60)
     var maxDragDistance = CGFloat(-70)
@@ -90,6 +92,7 @@ struct TaskItemSubview: View {
                                 self.rewards.updateUpcomingReward()
                                 if self.task.taskDone == true {
 //                                    self.task.title = self.task.titleWithStrikethrough
+                                    self.textColor = UIColor.white
                                     self.tasks.totalCompletedTasksCount += 1
                                     for reward in self.rewards.rewards {
                                         reward.completedTasks += 1
@@ -109,6 +112,7 @@ struct TaskItemSubview: View {
                                         
                                     }
                                 } else {
+                                    self.textColor = UIColor.label
                                     if self.tasks.totalCompletedTasksCount > 0 {
                                         self.tasks.totalCompletedTasksCount -= 1
                                     }
@@ -149,11 +153,13 @@ struct TaskItemSubview: View {
                         GeometryReader { geo1 in
                             VStack {
                                 Spacer()
-                                TextEditor(text: self.$title, task: self.task, desiredHeight: self.$desiredHeight, isFirstResponder: false, onCommit: {})//, isHeightAdjustable: true)
+                                TextEditor(text: self.$title, textColor: self.$textColor, desiredHeight: self.$desiredHeight, isFirstResponder: false, clearOnEdit: self.clearOnEdit, onCommit: {
+                                    self.textColor = self.task.taskDone ? UIColor.white : UIColor.black
+                                })//, isHeightAdjustable: true)
         //                            , onCommit: {
         //                            self.task.title = self.title
         //                        })
-                                    .foregroundColor(self.task.taskDone ? Color.white : Color.black)
+//                                    .foregroundColor(self.task.taskDone ? Color.white : Color.black)
                                     .padding(.trailing, 10)
                                     .frame(width: geo1.size.width, height: self.desiredHeight + 1)
                                 Spacer()

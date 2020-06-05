@@ -28,6 +28,7 @@ struct RewardReachedModal: View {
 //                    Spacer()
                     self.rewardTitle
                         .padding(.bottom, 30)
+                        .frame(maxWidth: geo.size.width * 0.8)
                     Image("gift")
                         .resizable()
                         .scaledToFit()
