@@ -9,36 +9,25 @@
 import SwiftUI
 import Combine
 
-public struct TextEditor: View {
-    var placeholderText: String?
+public struct CustomTextView: View {
     @Binding public var text: String
     @Binding public var textColor: UIColor
-//    var task: Task
     @Binding var desiredHeight: CGFloat
-    var isFirstResponder: Bool
-    var clearOnEdit: Bool
     var onCommit: (() -> Void)
-//    var isHeightAdjustable: Bool
     
     public var body: some View {
-        TextField_UI(placeholderText: placeholderText, text: $text, textColor: $textColor, desiredHeight: $desiredHeight, isFirstResponder: isFirstResponder, clearOnEdit: clearOnEdit, onEditingChanged: {_ in
+        TextView_UI(text: $text, textColor: $textColor, desiredHeight: $desiredHeight, onEditingChanged: {_ in
             
         }, onCommit: self.onCommit)
     }
 }
-struct TextField_UI : UIViewRepresentable {
-//    @EnvironmentObject var tasks: Tasks
+struct TextView_UI : UIViewRepresentable {
     
     typealias UIViewType = UITextView
     
-    var placeholderText: String?
-    @Binding var text: String//?
+    @Binding var text: String
     @Binding var textColor: UIColor
-//    var task: Task
     @Binding var desiredHeight: CGFloat
-    var isFirstResponder: Bool
-    var clearOnEdit: Bool
-//    var isHeightAdjustable: Bool
     var onEditingChanged: ((String) -> Void)
     var onCommit: (() -> Void)
     
@@ -49,7 +38,7 @@ struct TextField_UI : UIViewRepresentable {
     func makeUIView(context: Context) -> UITextView {
         let textView = UITextView()
         textView.backgroundColor = nil
-        textView.text = text// ?? ""
+        textView.text = self.text// ?? ""
 //        if let font = context.environment.font {
 //            textView.font = font.font_ui
 //        } else {
@@ -58,33 +47,15 @@ struct TextField_UI : UIViewRepresentable {
         
         textView.delegate = context.coordinator
                 
-        if self.placeholderText != "" && self.text == "" {
-            textView.text = self.placeholderText
-            textView.textColor = UIColor.placeholderText
-            textView.becomeFirstResponder()
-        }
-        else {
-            textView.textColor = UIColor.label
-        }
+        textView.textColor = self.textColor
 
         textView.translatesAutoresizingMaskIntoConstraints = false
-        
-//        if isFirstResponder {
-//            textView.becomeFirstResponder()
-//        }
         
         textView.textContainerInset = .zero
 
         //MARK: disabling scroll messes up the frame so enjoy this hack??
         textView.isScrollEnabled = true
         textView.contentInsetAdjustmentBehavior = .never
-        
-//        if isHeightAdjustable {
-//            makeUITextViewHeightAdjustable(textView: textView)
-//        }
-        
-//        textView.textContainer.maximumNumberOfLines = 1
-//        print(self.desiredHeight)
         
         setHeight(textView: textView)
         
@@ -96,28 +67,9 @@ struct TextField_UI : UIViewRepresentable {
 //            textView.font = font.font_ui
 //        }
         
-//        if self.text == "" {
-//            textView.text = self.placeholderText
-//            textView.textColor = UIColor.placeholderText
-//        }
-//        else {
-//            textView.text = text
-//            textView.textColor = UIColor.black
-//        }
-        
-//        textView.text = text// ?? ""
-//        textView.textColor = task.taskDone ? UIColor.white : UIColor.black
-        if self.placeholderText != "" && self.text == "" {
-//            textView.text = self.placeholderText
-            textView.textColor = UIColor.placeholderText
-        }
-        else {
-            textView.textColor = self.textColor
-        }
+        textView.textColor = self.textColor
         
         setHeight(textView: textView)
-        
-//        print(self.desiredHeight)
     }
     
     func setHeight(textView: UITextView) {
@@ -130,9 +82,9 @@ struct TextField_UI : UIViewRepresentable {
     }
     
     class Coordinator: NSObject, UITextViewDelegate {
-        var field: TextField_UI
+        var field: TextView_UI
         
-        init(_ field: TextField_UI) {
+        init(_ field: TextView_UI) {
             self.field = field
         }
         
@@ -141,29 +93,20 @@ struct TextField_UI : UIViewRepresentable {
         }
         
         func textViewDidBeginEditing(_ textView: UITextView) {
-            if field.clearOnEdit {
-                textView.text = ""
-            }
+            
         }
         
         func textViewDidEndEditing(_ textView: UITextView) {
-            if field.clearOnEdit {
-                textView.text = field.placeholderText
-            }
-            
             field.onCommit()
         }
         
+        
+        
         func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
             if text == "\n" {
-//                print(field.placeholderText)
-                if field.placeholderText == "" || field.placeholderText == nil {
-                    textView.resignFirstResponder()
-                    field.onCommit()
-                    return false
-                }
                 field.onCommit()
-                textView.text = ""
+                textView.resignFirstResponder()
+//                textView.text = ""
                 return false
             }
             return true

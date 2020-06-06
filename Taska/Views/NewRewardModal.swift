@@ -32,7 +32,7 @@ struct NewRewardModal: View {
         GeometryReader { geo in
             VStack() {
                 // Sets the reward title after user inputs into text field
-                TextEditor(placeholderText: "Add reward title", text: self.$new_title, textColor: self.$textColor, desiredHeight: self.$desiredHeight, isFirstResponder: false, clearOnEdit: self.clearOnEdit, onCommit: {
+                CustomTextField(placeholderText: "Add reward title", text: self.$new_title, desiredHeight: self.$desiredHeight, isFirstResponder: true, onCommit: {
                     if self.new_title != "" {
                         self.reward.changeTitle(new_title: Text(self.new_title))
                         self.reward.changeCompletedTasksNeeded(completedTasksNeeded: self.completedTasksNeeded)
@@ -48,18 +48,18 @@ struct NewRewardModal: View {
                     self.partialSheetManager.closePartialSheet()
 //                    print(Double(self.tasks.completedTasksForNextReward), Double(max(self.rewards.lowestRequiredTotalCompletedTaskCount, 1)))
                 })
-                    .frame(height: 40)
-//                    .border(Color.red)
+                    .frame(width: geo.size.width, height: 40)
+                
                 self.stepper
 //                    .offset(y: 10)
-//                    .border(Color.green)
+                
                 Spacer()
             }
             .padding([.top, .bottom], 10)
 //            .frame(height: geo.size.height)
         }
-        .frame(height: 160)
-//        .border(Color.blue)
+        .frame(height: 140)
+        .border(Color.blue)
     }
     
     var stepper: some View {

@@ -34,7 +34,7 @@ struct RewardReachedModal: View {
                         .scaledToFit()
                         .frame(width: 150.0, height: 150)
                         .scaleEffect(self.isAtMaxScale ? self.giftScale : 1)
-                        .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true))
+                        .animation(Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true))
                         .onAppear(perform: {
                             withAnimation() {
                                 self.isAtMaxScale.toggle()
@@ -58,13 +58,13 @@ struct RewardReachedModal: View {
                                 .foregroundColor(Color.white)
                                 .background(Color.yellow)
                                 .cornerRadius(12)
+                                .padding(.bottom, 20)
 //                                .padding(10)
 //                        }
                     }
                     Spacer()
                 }
             }
-//            .border(Color.red)
         }
     }
     

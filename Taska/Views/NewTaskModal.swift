@@ -28,7 +28,8 @@ struct NewTaskModal: View {
             VStack {
                 // Sets the task title after user inputs into text field
                 //TextEditor(text: self.$new_title, task: self.task, desiredHeight: self.$desiredHeight, isFirstResponder: false, onCommit: {
-                TextEditor(placeholderText: "Add task title", text: self.$new_title, textColor: self.$textColor, desiredHeight: self.$desiredHeight, isFirstResponder: false, clearOnEdit: self.clearOnEdit, onCommit: {
+                CustomTextField(placeholderText: "Add task title", text: self.$new_title, desiredHeight: self.$desiredHeight, isFirstResponder: true, onCommit: {
+//                TextField("Add task title", text: self.$new_title) {
                     if self.new_title != "" {
                         self.tasks.addTask(task: Task())
                         self.tasks.tasks[0].changeTitle(new_title: self.new_title)
@@ -39,11 +40,12 @@ struct NewTaskModal: View {
                         self.partialSheetManager.closePartialSheet()
                     }
                 })
+                
                 Spacer()
             }
         }
         .padding([.top, .bottom], 10)
-        .frame(height: 120)
+        .frame(height: 100)
     }
 }
 

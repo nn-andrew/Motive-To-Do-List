@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		AB50357C248768E500E734D9 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB50357B248768E500E734D9 /* AboutView.swift */; };
 		AB50357E2489926400E734D9 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB50357D2489926400E734D9 /* HostingController.swift */; };
+		AB5035802489FCEA00E734D9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB50357F2489FCEA00E734D9 /* CustomTextField.swift */; };
+		AB503582248A367000E734D9 /* EditRewardsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB503581248A367000E734D9 /* EditRewardsModal.swift */; };
+		AB503585248B2A4200E734D9 /* Taska.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB503583248B2A4200E734D9 /* Taska.xcdatamodeld */; };
 		AB66D6122462250F00059E67 /* OptionsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6112462250F00059E67 /* OptionsModal.swift */; };
 		AB66D6142462995200059E67 /* DashboardSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6132462995200059E67 /* DashboardSubview.swift */; };
 		AB66D6162463F4F000059E67 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6152463F4F000059E67 /* Reward.swift */; };
@@ -20,7 +23,7 @@
 		AB66D6232464B0D200059E67 /* GiftBoxSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */; };
 		AB66D6272465380900059E67 /* RewardReachedModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6262465380900059E67 /* RewardReachedModal.swift */; };
 		AB66D6372480E81000059E67 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = AB66D6362480E81000059E67 /* PartialSheet */; };
-		AB66D6442484BCFF00059E67 /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6432484BCFE00059E67 /* TextEditor.swift */; };
+		AB66D6442484BCFF00059E67 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB66D6432484BCFE00059E67 /* CustomTextView.swift */; };
 		AB6E5C112457ABC8006A7AC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */; };
 		AB6E5C132457ABC8006A7AC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */; };
 		AB6E5C172457ABCD006A7AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6E5C162457ABCD006A7AC0 /* Assets.xcassets */; };
@@ -49,6 +52,9 @@
 /* Begin PBXFileReference section */
 		AB50357B248768E500E734D9 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		AB50357D2489926400E734D9 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		AB50357F2489FCEA00E734D9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		AB503581248A367000E734D9 /* EditRewardsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRewardsModal.swift; sourceTree = "<group>"; };
+		AB503584248B2A4200E734D9 /* Taska.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Taska.xcdatamodel; sourceTree = "<group>"; };
 		AB66D6112462250F00059E67 /* OptionsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsModal.swift; sourceTree = "<group>"; };
 		AB66D6132462995200059E67 /* DashboardSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSubview.swift; sourceTree = "<group>"; };
 		AB66D6152463F4F000059E67 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
@@ -60,7 +66,7 @@
 		AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBoxSubview.swift; sourceTree = "<group>"; };
 		AB66D6262465380900059E67 /* RewardReachedModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardReachedModal.swift; sourceTree = "<group>"; };
 		AB66D63A2480EBAE00059E67 /* PartialSheet */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PartialSheet; path = ../../../../Desktop/PartialSheet; sourceTree = "<group>"; };
-		AB66D6432484BCFE00059E67 /* TextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditor.swift; sourceTree = "<group>"; };
+		AB66D6432484BCFE00059E67 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		AB66D6452484C0A700059E67 /* Taska-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Taska-Prefix.pch"; sourceTree = "<group>"; };
 		AB6E5C0D2457ABC8006A7AC0 /* Taska.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taska.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 				AB6E5C1B2457ABCD006A7AC0 /* LaunchScreen.storyboard */,
 				AB6E5C1E2457ABCD006A7AC0 /* Info.plist */,
 				AB6E5C182457ABCD006A7AC0 /* Preview Content */,
+				AB503583248B2A4200E734D9 /* Taska.xcdatamodeld */,
 			);
 			path = Taska;
 			sourceTree = "<group>";
@@ -181,13 +188,15 @@
 				AB6E5C45245C083B006A7AC0 /* TasksView.swift */,
 				AB6E5C47245C083B006A7AC0 /* TaskItemSubview.swift */,
 				AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */,
-				AB66D6432484BCFE00059E67 /* TextEditor.swift */,
+				AB66D6432484BCFE00059E67 /* CustomTextView.swift */,
+				AB50357F2489FCEA00E734D9 /* CustomTextField.swift */,
 				AB66D6132462995200059E67 /* DashboardSubview.swift */,
 				AB6E5C53245E5308006A7AC0 /* NewTaskModal.swift */,
 				AB66D6172463FAD300059E67 /* NewRewardModal.swift */,
 				AB66D6112462250F00059E67 /* OptionsModal.swift */,
 				AB50357B248768E500E734D9 /* AboutView.swift */,
 				AB66D6262465380900059E67 /* RewardReachedModal.swift */,
+				AB503581248A367000E734D9 /* EditRewardsModal.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -314,10 +323,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB66D6122462250F00059E67 /* OptionsModal.swift in Sources */,
+				AB503585248B2A4200E734D9 /* Taska.xcdatamodeld in Sources */,
 				AB66D6232464B0D200059E67 /* GiftBoxSubview.swift in Sources */,
 				AB6E5C4F245C083C006A7AC0 /* Colors.swift in Sources */,
 				AB6E5C112457ABC8006A7AC0 /* AppDelegate.swift in Sources */,
+				AB503582248A367000E734D9 /* EditRewardsModal.swift in Sources */,
 				AB6E5C132457ABC8006A7AC0 /* SceneDelegate.swift in Sources */,
+				AB5035802489FCEA00E734D9 /* CustomTextField.swift in Sources */,
 				AB66D6162463F4F000059E67 /* Reward.swift in Sources */,
 				AB50357E2489926400E734D9 /* HostingController.swift in Sources */,
 				AB66D6142462995200059E67 /* DashboardSubview.swift in Sources */,
@@ -325,7 +337,7 @@
 				AB66D6182463FAD300059E67 /* NewRewardModal.swift in Sources */,
 				AB66D6272465380900059E67 /* RewardReachedModal.swift in Sources */,
 				AB6E5C4E245C083C006A7AC0 /* Task.swift in Sources */,
-				AB66D6442484BCFF00059E67 /* TextEditor.swift in Sources */,
+				AB66D6442484BCFF00059E67 /* CustomTextView.swift in Sources */,
 				AB50357C248768E500E734D9 /* AboutView.swift in Sources */,
 				AB6E5C4D245C083C006A7AC0 /* TaskItemSubview.swift in Sources */,
 				AB6E5C5B2460F6F1006A7AC0 /* SystemServices.swift in Sources */,
@@ -616,6 +628,19 @@
 			productName = PartialSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		AB503583248B2A4200E734D9 /* Taska.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AB503584248B2A4200E734D9 /* Taska.xcdatamodel */,
+			);
+			currentVersion = AB503584248B2A4200E734D9 /* Taska.xcdatamodel */;
+			path = Taska.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AB6E5C052457ABC8006A7AC0 /* Project object */;
 }

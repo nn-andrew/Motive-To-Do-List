@@ -23,8 +23,8 @@ struct TaskItemSubview: View {
     @State var title: String
     @State var desiredHeight: CGFloat = 60
     @State var textColor: UIColor = UIColor.label
-    var clearOnEdit: Bool = false
-    
+
+//    @State var backLayerOpacity: Double = 0
     var viewMinHeight = CGFloat(60)
     var maxDragDistance = CGFloat(-70)
     
@@ -41,7 +41,7 @@ struct TaskItemSubview: View {
 //                        )
                     RoundedRectangle(cornerRadius: 18)
                         .fill(Colors.red2)
-//                        .opacity(1)
+//                        .opacity(self.backLayerOpacity)
                         .shadow(color: Colors.blue2.opacity(0.1), radius: 3, x: 0, y: 3)
                         .frame(width: geo.size.width)
                         .frame(minHeight: self.viewMinHeight)
@@ -105,6 +105,7 @@ struct TaskItemSubview: View {
                                             self.rewards.updateUpcomingReward()
 //                                            self.tasks.completedTasksForNextReward = 0
                                         }) {
+                                            
                                             RewardReachedModal()
                                                 .environmentObject(self.rewards)
                                                 .frame(height: UIScreen.main.bounds.size.height * 0.6)
@@ -116,15 +117,11 @@ struct TaskItemSubview: View {
                                     if self.tasks.totalCompletedTasksCount > 0 {
                                         self.tasks.totalCompletedTasksCount -= 1
                                     }
-//                                    if self.rewards.lowestRequiredTotalCompletedTaskCount - 1 >= 0 {
-//                                        self.rewards.lowestRequiredTotalCompletedTaskCount -= 1
-//                                    }
                                     for reward in self.rewards.rewards {
                                         if reward.completedTasks > 0 {
                                             reward.completedTasks -= 1
                                         }
                                     }
-//                                    self.task.title = self.task.titleWithoutStrikethrough
                                 }
                                 print(Double(self.rewards.upcomingReward.completedTasks), Double(self.rewards.upcomingReward.completedTasksNeeded))
                             }) {
@@ -135,9 +132,20 @@ struct TaskItemSubview: View {
                                         .frame(width: 60, height: 60)
                                     
                                     RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Colors.grey1, lineWidth: 3)
+                                        .stroke(self.task.taskDone ? Colors.grey0 : Colors.grey1, lineWidth: 3)
                                         //.padding(.leading, 40)
                                         .frame(width: 30, height: 30)
+                                    
+                                    Rectangle()
+                                        .fill(Colors.grey0)
+                                        .frame(width: 20, height: 20)
+                                        .mask(
+                                            Image("checkmark")
+                                                .resizable()
+                                                .scaledToFit()
+//                                                .frame(width: 20, height: 20)
+                                        )
+                                        .opacity(self.task.taskDone ? 1 : 0)
                                 }
                             }
 //                            .sheet(isPresented: self.$rewardReached, onDismiss:
@@ -153,12 +161,14 @@ struct TaskItemSubview: View {
                         GeometryReader { geo1 in
                             VStack {
                                 Spacer()
-                                TextEditor(text: self.$title, textColor: self.$textColor, desiredHeight: self.$desiredHeight, isFirstResponder: false, clearOnEdit: self.clearOnEdit, onCommit: {
+                                CustomTextView(text: self.$title, textColor: self.$textColor, desiredHeight: self.$desiredHeight, onCommit: {
                                     self.textColor = self.task.taskDone ? UIColor.white : UIColor.black
-                                })//, isHeightAdjustable: true)
-        //                            , onCommit: {
-        //                            self.task.title = self.title
-        //                        })
+                                    if self.title == "" {
+                                        self.tasks.removeTask(task: self.task)
+                                    } else {
+                                        self.task.changeTitle(new_title: self.title)
+                                    }
+                                })
 //                                    .foregroundColor(self.task.taskDone ? Color.white : Color.black)
                                     .padding(.trailing, 10)
                                     .frame(width: geo1.size.width, height: self.desiredHeight + 1)
@@ -181,16 +191,16 @@ struct TaskItemSubview: View {
                 .onChanged { gesture in
                     self.tasks.animated = false
                     self.offset = gesture.translation
-//                    print(self.tasks.animated)
+//                    self.backLayerOpacity = 1
                 }
                 .onEnded { gesture in
                     self.tasks.animated = true
                     if self.offset.width < self.maxDragDistance {
                         self.tasks.removeTask(task: self.task)
-//                        self.tasks.tasks.remove(at: self.index)
                     } else {
                         self.offset = .zero
                     }
+//                    self.backLayerOpacity = 0
                 }
         )
     }

@@ -11,12 +11,11 @@ import SwiftUI
 struct AboutView: View {
     var body: some View {
         GeometryReader { geo in
-            VStack(spacing: 20) {
+            VStack(spacing: 10) {
                 Text("Developed by Andrew Nguyen")
                 Text("Gift icon made by Freepik from www.flaticon.com")
-                Spacer()
             }
-            .frame(width: geo.size.width, height: geo.size.height)
+            .frame(maxWidth: geo.size.width, maxHeight: geo.size.height)
             .font(.system(size: 14))
         }
     }

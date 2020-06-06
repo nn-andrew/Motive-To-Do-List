@@ -15,6 +15,8 @@ struct TasksView: View {
     @EnvironmentObject var rewards: Rewards
     @State private var showModal: Bool = false
     
+//    @State var hideCompletedTasks: Bool = false
+    
     var body: some View {
         GeometryReader { geo in
 //            NavigationView {
@@ -41,7 +43,7 @@ struct TasksView: View {
                                     self.partialSheetManager.showPartialSheet({
                                         
                                     }) {
-                                        OptionsModal()
+                                        OptionsModal()//hideCompletedTasks: self.$hideCompletedTasks)
                                     }
                                 }) {
                                     ZStack {
@@ -102,19 +104,21 @@ struct TasksView: View {
 //                                .opacity(self.tasks.tasks.count == 0 ? 0.7 : 0)
                             
                             //MARK: Version 2
-                            ScrollView {
+                            ScrollView(showsIndicators: false) {
                                 ForEach((Array(Array(self.tasks.tasks + self.tasks.completedTasks).enumerated())), id: \.element.id) { i, item in
                                     TaskItemSubview(task: item, title: item.title)
-                                    .padding(-1)
+//                                        .opacity(item.taskDone == false || self.hideCompletedTasks == false ? 1 : 0) // is task completed and hidden? yes : no
+//                                        .padding(item.taskDone == false || self.hideCompletedTasks == false ? 0 : -60)
+                                        
                                 }
-                            .transition(.opacity)
-                            .animation(self.tasks.animated ? .default : .none)
-                            .buttonStyle(PlainButtonStyle())
-    //                        .edgesIgnoringSafeArea(.all)
-                            .environment(\.defaultMinListRowHeight, 10)
-                            .padding(10)
-                            .frame(width: geo.size.width)
-                            .frame(maxHeight: geo.size.height)
+                                .transition(.opacity)
+                                .animation(self.tasks.animated ? .default : .none)
+                                .buttonStyle(PlainButtonStyle())
+        //                        .edgesIgnoringSafeArea(.all)
+                                .environment(\.defaultMinListRowHeight, 10)
+                                .padding(10)
+                                .frame(width: geo.size.width)
+//                                .frame(maxHeight: geo.size.height)
                             }
                         }
                         .padding([.top, .bottom], 10)
@@ -165,6 +169,13 @@ struct TasksView: View {
         .addPartialSheet()
         .edgesIgnoringSafeArea(.bottom)
     }
+    
+//    @ViewBuilder
+//    var buildItemView: some View {
+//        if item.taskDone == false || self.hideCompletedTasks == false {
+//            return TaskItemSubview(task: item, title: item.title)
+//        }
+//    }
     
     var AddTaskButton: some View {
         GeometryReader { geo in
