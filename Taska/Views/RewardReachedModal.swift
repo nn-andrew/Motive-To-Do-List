@@ -42,7 +42,8 @@ struct RewardReachedModal: View {
                          })
                         .padding(.bottom, 40)
                     Button(action: {
-                        self.rewards.removeReward()
+                        print(self.rewards.rewards)
+                        self.rewards.removeReward(index: 0)
                         self.rewards.updateUpcomingReward()
 //                        self.tasks.completedTasksForNextReward = 0
                         self.partialSheetManager.closePartialSheet()
@@ -70,7 +71,8 @@ struct RewardReachedModal: View {
     
     @ViewBuilder
     var rewardTitle: some View {
-        self.rewards.rewards.count > 0 ? self.rewards.rewards[0].title.font(.system(size: 20)) : Text("no reward title")
+        Text(self.rewards.upcomingReward.title)
+//        self.rewards.rewards.count > 0 ? Text(self.rewards.rewards[0].title).font(.system(size: 20)) : Text("no reward title")
     }
 }
 

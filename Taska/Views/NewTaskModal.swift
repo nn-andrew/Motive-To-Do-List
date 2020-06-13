@@ -31,8 +31,8 @@ struct NewTaskModal: View {
                 CustomTextField(placeholderText: "Add task title", text: self.$new_title, desiredHeight: self.$desiredHeight, isFirstResponder: true, onCommit: {
 //                TextField("Add task title", text: self.$new_title) {
                     if self.new_title != "" {
-                        self.tasks.addTask(task: Task())
-                        self.tasks.tasks[0].changeTitle(new_title: self.new_title)
+                        self.tasks.addTask(task: Task(title: self.new_title))
+//                        self.tasks.tasks[0].changeTitle(new_title: self.new_title)
                         self.tasks.calculatePercentageCompleted()
                         self.new_title = ""
                     }

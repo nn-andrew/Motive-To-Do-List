@@ -34,7 +34,7 @@ struct NewRewardModal: View {
                 // Sets the reward title after user inputs into text field
                 CustomTextField(placeholderText: "Add reward title", text: self.$new_title, desiredHeight: self.$desiredHeight, isFirstResponder: true, onCommit: {
                     if self.new_title != "" {
-                        self.reward.changeTitle(new_title: Text(self.new_title))
+                        self.reward.changeTitle(new_title: self.new_title)
                         self.reward.changeCompletedTasksNeeded(completedTasksNeeded: self.completedTasksNeeded)
                         self.rewards.addReward(reward: self.reward)
                         self.rewards.updateUpcomingReward()
@@ -59,7 +59,6 @@ struct NewRewardModal: View {
 //            .frame(height: geo.size.height)
         }
         .frame(height: 140)
-        .border(Color.blue)
     }
     
     var stepper: some View {

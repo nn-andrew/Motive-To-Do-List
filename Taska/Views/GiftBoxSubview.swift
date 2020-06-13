@@ -16,7 +16,6 @@ struct GiftBoxSubview: View {
         ZStack {
             layer0
             layer2
-                
         }
     }
     

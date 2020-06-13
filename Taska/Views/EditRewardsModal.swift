@@ -20,7 +20,7 @@ struct EditRewardsModal: View {
             ScrollView {
                 List {
                     ForEach(self.rewards.rewards) { reward in
-                        reward.title
+                        Text(reward.title)
                             .border(Color.green)
 //                    .padding(-1)
                     }

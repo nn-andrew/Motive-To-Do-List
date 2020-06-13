@@ -86,7 +86,7 @@ struct TaskItemSubview: View {
                         ZStack {
                             Button(action: {
                                 self.tasks.animated = true
-                                self.task.taskDone.toggle()
+                                self.task.toggleTaskDone()
                                 self.lightImpact()
                                 self.tasks.transferTask(task: self.task)
                                 self.rewards.updateUpcomingReward()
@@ -95,13 +95,13 @@ struct TaskItemSubview: View {
                                     self.textColor = UIColor.white
                                     self.tasks.totalCompletedTasksCount += 1
                                     for reward in self.rewards.rewards {
-                                        reward.completedTasks += 1
+                                        reward.changeCompletedTasks(completedTasks: reward.completedTasks + 1)
                                     }
                                     
                                     if self.rewards.isRewardReached(completedTasksCount: self.rewards.upcomingReward.completedTasks) {
                                         self.rewardReached = true
                                         self.partialSheetManager.showPartialSheet({
-                                            self.rewards.removeReward()
+                                            self.rewards.removeReward(index: 0)
                                             self.rewards.updateUpcomingReward()
 //                                            self.tasks.completedTasksForNextReward = 0
                                         }) {
@@ -119,7 +119,8 @@ struct TaskItemSubview: View {
                                     }
                                     for reward in self.rewards.rewards {
                                         if reward.completedTasks > 0 {
-                                            reward.completedTasks -= 1
+                                            reward.changeCompletedTasks(completedTasks: reward.completedTasks - 1)
+//                                            reward.completedTasks -= 1
                                         }
                                     }
                                 }
@@ -166,7 +167,7 @@ struct TaskItemSubview: View {
                                     if self.title == "" {
                                         self.tasks.removeTask(task: self.task)
                                     } else {
-                                        self.task.changeTitle(new_title: self.title)
+                                        self.task.changeTitle(newTitle: self.title)
                                     }
                                 })
 //                                    .foregroundColor(self.task.taskDone ? Color.white : Color.black)
@@ -203,6 +204,9 @@ struct TaskItemSubview: View {
 //                    self.backLayerOpacity = 0
                 }
         )
+        .onAppear(perform: {
+            self.textColor = self.task.taskDone ? UIColor.white : UIColor.label
+        })
     }
     
     func lightImpact() {
