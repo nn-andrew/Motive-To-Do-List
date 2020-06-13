@@ -57,6 +57,9 @@ struct OptionsModal: View {
                 .actionSheet(isPresented: self.$showRemoveAllRewardsAlert) {
                     ActionSheet(title: Text("All rewards will be permanently deleted."), buttons: [
                         .destructive(Text("Delete")) {
+                            for _ in self.rewards.rewards {
+                                self.rewards.removeReward(index: 0)
+                            }
                             self.rewards.rewards.removeAll()
                             self.rewards.updateUpcomingReward()
                             self.partialSheetManager.closePartialSheet()
