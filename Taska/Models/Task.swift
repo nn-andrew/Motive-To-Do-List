@@ -15,6 +15,7 @@ class Tasks: ObservableObject {
 //    var tasks = [Task(), Task(), Task(), Task()]
     var tasks = [Task]()
     var completedTasks: [Task] = []
+    var tasksForDeletion: [Task] = []
     var totalTasksCount: Int = 0
     var totalCompletedTasksCount: Int = 0
 //    var completedTasksForNextReward: Int = 0
@@ -85,6 +86,8 @@ class Tasks: ObservableObject {
     }
     
     func removeTask(task: Task) {
+        //MARK: not removed immediately because View still depends on reference to task
+        
         print("removeTask")
         let realm = try! Realm()
         try! realm.write {
@@ -111,9 +114,9 @@ class Tasks: ObservableObject {
                     t.reentryIndex -= 1
                 }
             }
-            
-            realm.delete(task)
         }
+        
+        tasksForDeletion.append(task)
         
 //        let realm = try! Realm()
 //        try! realm.write {

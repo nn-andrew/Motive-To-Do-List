@@ -11,6 +11,7 @@ import Foundation
 import PartialSheet
 
 struct SystemServices: ViewModifier {
+    //MARK: Currently unused; should delete going forward
     
     static var sheetManager: PartialSheetManager = PartialSheetManager()
     @ObservedObject static var tasks: Tasks = Tasks()
