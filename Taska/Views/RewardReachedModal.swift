@@ -16,6 +16,8 @@ struct RewardReachedModal: View {
     @State var isAtMaxScale = false
     var giftScale: CGFloat = 1.06
     
+    @State var title = ""
+    
     var body: some View {
         GeometryReader { geo in
             ZStack {
@@ -34,18 +36,17 @@ struct RewardReachedModal: View {
                         .scaledToFit()
                         .frame(width: 150.0, height: 150)
                         .scaleEffect(self.isAtMaxScale ? self.giftScale : 1)
-                        .animation(Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true))
+                        .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true))
                         .onAppear(perform: {
-                            withAnimation() {
+                            withAnimation {
                                 self.isAtMaxScale.toggle()
                             }
                          })
                         .padding(.bottom, 40)
                     Button(action: {
                         print(self.rewards.rewards)
-                        self.rewards.removeReward(index: 0)
                         self.rewards.updateUpcomingReward()
-//                        self.tasks.completedTasksForNextReward = 0
+                        self.rewards.upcomingReward = Reward()
                         self.partialSheetManager.closePartialSheet()
                     }) {
 //                        ZStack {
@@ -67,12 +68,16 @@ struct RewardReachedModal: View {
                 }
             }
         }
+        .onAppear(perform: {
+            self.title = self.rewards.upcomingReward.title
+            self.rewards.removeReward(index: 0)
+        })
     }
     
     @ViewBuilder
     var rewardTitle: some View {
-        Text(self.rewards.upcomingReward.title)
-//        self.rewards.rewards.count > 0 ? Text(self.rewards.rewards[0].title).font(.system(size: 20)) : Text("no reward title")
+        Text(self.title)
+            .font(.custom("Rubik-Medium", size: 18))
     }
 }
 

@@ -13,6 +13,7 @@ import RealmSwift
 class Rewards: ObservableObject {
     @EnvironmentObject var tasks: Tasks
     var rewards = [Reward]()
+    var rewardsToBeDeleted: [Reward] = []
 //    var completedRewards: [Reward] = []
     var percentageCompleted: Double = 0
 //    @Published var lowestRequiredTotalCompletedTaskCount: Int = 1
@@ -87,20 +88,13 @@ class Rewards: ObservableObject {
     
     func removeReward(index: Int) {
         print("removeReward")
-        let realm = try! Realm()
         
-        try! realm.write {
-            if rewards.count > 0 {
-                realm.delete(rewards[index])
-                rewards.remove(at: index)
-            }
-        }
-            
-        updateUpcomingReward()
+        rewardsToBeDeleted.append(rewards[index])
+        rewards.remove(at: index)
         
-        if rewards.count == 0 {
-            upcomingReward = Reward()
-        }
+//        if rewards.count == 0 {
+//            upcomingReward = Reward()
+//        }
 //        calculatePercentageCompleted()
     }
     

@@ -56,6 +56,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             for task in tasks.tasksForDeletion {
                 realm.delete(task)
             }
+            for reward in rewards.rewardsToBeDeleted {
+                realm.delete(reward)
+            }
         }
     }
 

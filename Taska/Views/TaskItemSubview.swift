@@ -22,7 +22,7 @@ struct TaskItemSubview: View {
     @State private var offset = CGSize.zero
     @State var title: String
     @State var desiredHeight: CGFloat = 60
-    @State var textColor: UIColor = UIColor.label
+    @State var textColor: UIColor = UIColor.black
 
 //    @State var backLayerOpacity: Double = 0
     var viewMinHeight = CGFloat(60)
@@ -101,7 +101,7 @@ struct TaskItemSubview: View {
                                     if self.rewards.isRewardReached(completedTasksCount: self.rewards.upcomingReward.completedTasks) {
                                         self.rewardReached = true
                                         self.partialSheetManager.showPartialSheet({
-                                            self.rewards.removeReward(index: 0)
+//                                            self.rewards.removeReward(index: 0)
                                             self.rewards.updateUpcomingReward()
 //                                            self.tasks.completedTasksForNextReward = 0
                                         }) {
@@ -113,7 +113,7 @@ struct TaskItemSubview: View {
                                         
                                     }
                                 } else {
-                                    self.textColor = UIColor.label
+                                    self.textColor = UIColor.black
                                     if self.tasks.totalCompletedTasksCount > 0 {
                                         self.tasks.totalCompletedTasksCount -= 1
                                     }
@@ -205,7 +205,7 @@ struct TaskItemSubview: View {
                 }
         )
         .onAppear(perform: {
-            self.textColor = self.task.taskDone ? UIColor.white : UIColor.label
+            self.textColor = self.task.taskDone ? UIColor.white : UIColor.black
         })
     }
     

@@ -20,7 +20,7 @@ struct NewTaskModal: View {
 //    @State var isTempFirstResponder: Bool? = false
     @State var new_title: String = String("")
     @State var desiredHeight: CGFloat = 0
-    @State var textColor: UIColor = UIColor.label
+    @State var textColor: UIColor = UIColor.black
     var clearOnEdit: Bool = true
     
     var body: some View {

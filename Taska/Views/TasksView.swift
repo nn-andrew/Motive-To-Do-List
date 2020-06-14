@@ -218,7 +218,7 @@ struct TasksView: View {
                             .resizable()
                             .scaledToFit()
                         )
-                        .frame(width: 36, height: 36)
+                        .frame(width: 30, height: 30)
                     Spacer()
                 }
                 .padding(.leading, 16)

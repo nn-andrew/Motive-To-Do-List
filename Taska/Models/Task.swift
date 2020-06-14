@@ -80,7 +80,9 @@ class Tasks: ObservableObject {
     }
     
     func removeAllCompletedTasks() {
-        completedTasks.removeAll()
+        for task in completedTasks {
+            removeTask(task: task)
+        }
         totalTasksCount = tasks.count
         calculatePercentageCompleted()
     }

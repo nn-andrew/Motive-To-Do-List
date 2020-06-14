@@ -20,7 +20,7 @@ struct NewRewardModal: View {
     @State var isTempFirstResponder: Bool? = false
     @State var new_title: String = String("")
     @State var completedTasksNeeded: Int = 1
-    @State var textColor: UIColor = UIColor.label
+    @State var textColor: UIColor = UIColor.black
     @State var desiredHeight: CGFloat = 0
     @State var clearOnEdit: Bool = true
     

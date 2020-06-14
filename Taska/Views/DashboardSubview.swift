@@ -12,6 +12,7 @@ import PartialSheet
 struct DashboardSubview: View {
     @EnvironmentObject var partialSheetManager: PartialSheetManager
     @EnvironmentObject var tasks: Tasks
+    @EnvironmentObject var rewards: Rewards
 //    let date = Date()
     let weekday = Calendar.current.component(.weekday, from: Date())
     let weekdayDict = [1: "sunday",
@@ -46,8 +47,9 @@ struct DashboardSubview: View {
         }
     }
     
+    @ViewBuilder
     var textualInfo: some View {
-        VStack {
+        VStack(spacing: 4) {
             HStack {
                 Text(String(self.weekdayDict[self.weekday] ?? "date error"))
                     .foregroundColor(.white)
@@ -55,11 +57,19 @@ struct DashboardSubview: View {
                 Spacer()
             }
             HStack {
-                Text(String(Int(self.tasks.percentageCompleted * 100)))
-                    .foregroundColor(.white)
-                Text("%")
-                    .offset(x: -6)
-                    .foregroundColor(.white)
+                if self.rewards.rewards.count > 0 {
+                    Text(String("\(self.rewards.upcomingReward.completedTasksNeeded - self.rewards.upcomingReward.completedTasks) until: \(self.rewards.upcomingReward.title)"))
+                        .foregroundColor(.white)
+                        .font(.custom("Rubik-Medium", size: 18))
+                } else {
+                    Text(String(Int(self.tasks.percentageCompleted * 100)))
+                        .foregroundColor(.white)
+                        .font(.custom("Rubik-Medium", size: 18))
+                    Text("%")
+                        .offset(x: -6)
+                        .foregroundColor(.white)
+                        .font(.custom("Rubik-Medium", size: 18))
+                }
                 Spacer()
             }
 //            .padding(.bottom, -16)
