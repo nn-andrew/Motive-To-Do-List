@@ -46,10 +46,6 @@ struct RewardReachedModal: View {
                          })
                         .padding(.bottom, 40)
                     Button(action: {
-                        print(self.rewards.rewards)
-                        if self.rewards.rewards.count > 0 {
-                            self.rewards.removeReward(index: 0)
-                        }
                         self.rewards.updateUpcomingReward()
 //                        self.rewards.upcomingReward = Reward()
                         self.partialSheetManager.closePartialSheet()
@@ -76,6 +72,11 @@ struct RewardReachedModal: View {
         .onAppear(perform: {
             self.title = self.rewards.upcomingReward.title
 //            self.rewards.removeReward(index: 0)
+        })
+        .onDisappear(perform: {
+            if self.rewards.rewards.count > 0 {
+                self.rewards.removeReward(index: 0)
+            }
         })
     }
     

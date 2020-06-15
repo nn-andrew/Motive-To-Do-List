@@ -12,7 +12,7 @@ import RealmSwift
 
 class Rewards: ObservableObject {
     @EnvironmentObject var tasks: Tasks
-    var rewards = [Reward]()
+    @Published var rewards = [Reward]()
     var rewardsToBeDeleted: [Reward] = []
 //    var completedRewards: [Reward] = []
     var percentageCompleted: Double = 0
