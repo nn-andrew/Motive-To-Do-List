@@ -202,9 +202,9 @@
 			children = (
 				AB6E5C45245C083B006A7AC0 /* TasksView.swift */,
 				AB6E5C47245C083B006A7AC0 /* TaskItemSubview.swift */,
-				AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */,
 				AB66D6432484BCFE00059E67 /* CustomTextView.swift */,
 				AB50357F2489FCEA00E734D9 /* CustomTextField.swift */,
+				AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */,
 				AB66D6132462995200059E67 /* DashboardSubview.swift */,
 				AB6E5C53245E5308006A7AC0 /* NewTaskModal.swift */,
 				AB66D6172463FAD300059E67 /* NewRewardModal.swift */,

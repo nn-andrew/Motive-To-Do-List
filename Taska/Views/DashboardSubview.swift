@@ -49,31 +49,32 @@ struct DashboardSubview: View {
     
     @ViewBuilder
     var textualInfo: some View {
-        VStack(spacing: 4) {
+        VStack {
             HStack {
                 Text(String(self.weekdayDict[self.weekday] ?? "date error"))
                     .foregroundColor(.white)
-                    .font(.custom("Rubik-Medium", size: 30))
+                    .font(.custom("Rubik-Medium", size: 34))
                 Spacer()
             }
             HStack {
                 if self.rewards.rewards.count > 0 {
-                    Text(String("\(self.rewards.upcomingReward.completedTasksNeeded - self.rewards.upcomingReward.completedTasks) until:\n\(self.rewards.upcomingReward.title)"))
+                    Text(String("\(self.rewards.upcomingReward.completedTasks)/\(self.rewards.upcomingReward.completedTasksNeeded): \(self.rewards.upcomingReward.title)"))
                         .foregroundColor(.white)
-                        .font(.custom("Rubik-Medium", size: 18))
+                        .font(.custom("Rubik-Medium", size: 17))
                 } else {
                     Text(String(Int(self.tasks.percentageCompleted * 100)))
                         .foregroundColor(.white)
-                        .font(.custom("Rubik-Medium", size: 18))
+                        .font(.custom("Rubik-Medium", size: 17))
                     Text("%")
                         .offset(x: -6)
                         .foregroundColor(.white)
-                        .font(.custom("Rubik-Medium", size: 18))
+                        .font(.custom("Rubik-Medium", size: 17))
                 }
                 Spacer()
             }
-//            .padding(.bottom, -16)
+//            .frame(height: 45)
         }
+        .frame(height: 60)
     }
     
     var progressBar: some View {
@@ -82,7 +83,7 @@ struct DashboardSubview: View {
                 HStack {
                     RoundedRectangle(cornerRadius: 40)
                         .fill(Color.white)
-                        .opacity(0.3)
+                        .opacity(0.25)
                         .frame(width: CGFloat(Int(geo1.size.width)), height: 7)
                     Spacer()
                 }

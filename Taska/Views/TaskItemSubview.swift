@@ -41,7 +41,7 @@ struct TaskItemSubview: View {
 //                            RoundedRectangle(cornerRadius: 18)
 //                        )
                     RoundedRectangle(cornerRadius: 18)
-                        .fill(Colors.red2)
+                        .fill(self.colorScheme == .light ? Colors.lightModeTaskRemove : Colors.darkModeTaskRemove)
 //                        .opacity(self.backLayerOpacity)
                         .shadow(color: Colors.blue2.opacity(0.1), radius: 3, x: 0, y: 3)
                         .frame(width: geo.size.width)
@@ -136,12 +136,12 @@ struct TaskItemSubview: View {
                                         .frame(width: 60, height: 60)
                                     
                                     RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Colors.grey0, lineWidth: 3)
+                                        .stroke(Colors.grey1, lineWidth: 3)
                                         //.padding(.leading, 40)
                                         .frame(width: 30, height: 30)
                                     
                                     Rectangle()
-                                        .fill(Colors.grey0)
+                                        .fill(Colors.grey1)
                                         .frame(width: 20, height: 20)
                                         .mask(
                                             Image("checkmark")

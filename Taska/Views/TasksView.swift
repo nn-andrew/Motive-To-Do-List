@@ -191,8 +191,8 @@ struct TasksView: View {
                 .frame(height: 60)
                 HStack {
                     Rectangle()
-                        .fill(Color.white)
-                        .opacity(0.8)
+                        .fill(Colors.grey1)
+//                        .opacity(0.8)
                         .mask(
                             Image("plus")
                             .resizable()
@@ -215,8 +215,8 @@ struct TasksView: View {
                     .frame(width: geo.size.width, height: geo.size.height)
                 HStack {
                     Rectangle()
-                        .fill(Color.white)
-                        .opacity(0.8)
+                        .fill(Colors.grey1)
+//                        .opacity(0.8)
                         .mask(
                             Image("star")
                             .resizable()

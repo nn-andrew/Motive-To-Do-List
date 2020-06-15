@@ -43,6 +43,8 @@ struct TextField_UI : UIViewRepresentable {
     
     func makeUIView(context: Context) -> UITextField {
         let textField = UITextField()
+        textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        
         textField.backgroundColor = nil
         textField.text = self.text
 //        if let font = context.environment.font {
@@ -102,6 +104,7 @@ struct TextField_UI : UIViewRepresentable {
         
         init(_ field: TextField_UI) {
             self.field = field
+            
         }
         
         func textFieldDidChangeSelection(_ textField: UITextField) {

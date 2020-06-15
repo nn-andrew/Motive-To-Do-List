@@ -23,10 +23,12 @@ struct RewardReachedModal: View {
             ZStack {
                 VStack() {
                     Text("Congratulations!")
+                        .font(.system(size: 17, weight: .semibold))
                         .fontWeight(.semibold)
                         .frame(maxWidth: geo.size.width * 0.8)
                         .padding(.top, 20)
                     Text("You reached a reward:\n")
+                        .font(.system(size: 16, weight: .regular))
 //                    Spacer()
                     self.rewardTitle
                         .padding(.bottom, 30)
@@ -77,7 +79,7 @@ struct RewardReachedModal: View {
     @ViewBuilder
     var rewardTitle: some View {
         Text(self.title)
-            .font(.custom("Rubik-Medium", size: 20))
+            .font(.system(size: 20, weight: .regular))
     }
 }
 

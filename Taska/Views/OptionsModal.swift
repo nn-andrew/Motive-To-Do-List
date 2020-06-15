@@ -40,6 +40,9 @@ struct OptionsModal: View {
                 .actionSheet(isPresented: self.$showRemoveAllCompletedTasksAlert) {
                     ActionSheet(title: Text("All completed tasks will be permanently deleted."), buttons: [
                         .destructive(Text("Delete")) {
+                            for task in self.tasks.completedTasks {
+                                self.tasks.removeTask(task: task)
+                            }
                             self.tasks.completedTasks.removeAll()
                             self.tasks.calculatePercentageCompleted()
                             self.partialSheetManager.closePartialSheet()

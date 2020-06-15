@@ -22,7 +22,7 @@ struct GiftBoxSubview: View {
     var layer0: some View {
         Rectangle()
         .fill(Color.white)
-        .opacity(0.3)
+        .opacity(0.25)
         .frame(width: 100, height: 100)
         .mask(
             ZStack() {
