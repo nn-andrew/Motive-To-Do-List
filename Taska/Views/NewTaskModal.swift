@@ -29,8 +29,9 @@ struct NewTaskModal: View {
                 // Sets the task title after user inputs into text field
                 //TextEditor(text: self.$new_title, task: self.task, desiredHeight: self.$desiredHeight, isFirstResponder: false, onCommit: {
                 CustomTextField(placeholderText: "Add task title", text: self.$new_title, desiredHeight: self.$desiredHeight, isFirstResponder: true, onCommit: {
-//                TextField("Add task title", text: self.$new_title) {
+                    
                     if self.new_title != "" {
+                        self.lightImpact()
                         self.tasks.addTask(task: Task(title: self.new_title))
                         self.tasks.calculatePercentageCompleted()
                         self.new_title = ""
@@ -45,6 +46,12 @@ struct NewTaskModal: View {
         }
         .padding([.top, .bottom], 10)
         .frame(height: 100)
+    }
+    
+    func lightImpact() {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
+        generator.impactOccurred()
     }
 }
 

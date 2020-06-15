@@ -33,7 +33,9 @@ struct NewRewardModal: View {
             VStack() {
                 // Sets the reward title after user inputs into text field
                 CustomTextField(placeholderText: "Add reward title", text: self.$new_title, desiredHeight: self.$desiredHeight, isFirstResponder: true, onCommit: {
+                    
                     if self.new_title != "" {
+                        self.lightImpact()
                         self.reward.changeTitle(new_title: self.new_title)
                         self.reward.changeCompletedTasksNeeded(completedTasksNeeded: self.completedTasksNeeded)
                         self.rewards.addReward(reward: self.reward)
@@ -80,6 +82,12 @@ struct NewRewardModal: View {
         .border(Color.green)
         .clipped()
         .allowsHitTesting(false)
+    }
+    
+    func lightImpact() {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
+        generator.impactOccurred()
     }
 }
 

@@ -128,7 +128,7 @@ struct TaskItemSubview: View {
                                         .frame(width: 60, height: 60)
                                     
                                     RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Colors.grey1, lineWidth: 3)
+                                        .stroke(self.colorScheme == .light ? Colors.grey1 : (self.taskDone ? Colors.grey2 : Colors.grey2), lineWidth: 3)
                                         //.padding(.leading, 40)
                                         .frame(width: 30, height: 30)
                                     
@@ -148,7 +148,6 @@ struct TaskItemSubview: View {
                             VStack {
                                 Spacer()
                                 CustomTextView(text: self.$title, taskDone: self.$taskDone, desiredHeight: self.$desiredHeight, onCommit: {
-                                    
                                     if self.title == "" {
                                         self.tasks.removeTask(task: self.task)
                                     } else {

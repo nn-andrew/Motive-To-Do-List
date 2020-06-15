@@ -185,14 +185,17 @@ struct TasksView: View {
         GeometryReader { geo in
             ZStack {
                 RoundedRectangle(cornerRadius: 18)
-                    .fill(Colors.blue2)
-//                    .opacity(0.3)
+                    .shadow(color: Colors.blue2, radius: 3, x: 0, y: 2)
+                    .opacity(0.1)
                     .frame(width: geo.size.width, height: geo.size.height)
-                .frame(height: 60)
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(self.colorScheme == .light ? Color.white : Colors.systemGray5)
+                    .opacity(0.95)
+                    .frame(width: geo.size.width, height: geo.size.height)
                 HStack {
                     Rectangle()
-                        .fill(Colors.grey1)
-//                        .opacity(0.8)
+                        .fill(Colors.blue2)
+//                        .opacity(0.95)
                         .mask(
                             Image("plus")
                             .resizable()
@@ -210,13 +213,17 @@ struct TasksView: View {
         GeometryReader { geo in
             ZStack {
                 RoundedRectangle(cornerRadius: 18)
-                    .fill(Colors.blue2)
-//                    .opacity(0.3)
+                    .shadow(color: Colors.blue2, radius: 3, x: 0, y: 2)
+                    .opacity(0.1)
+                    .frame(width: geo.size.width, height: geo.size.height)
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(self.colorScheme == .light ? Color.white : Colors.systemGray5)
+                    .opacity(0.95)
                     .frame(width: geo.size.width, height: geo.size.height)
                 HStack {
                     Rectangle()
-                        .fill(Colors.grey1)
-//                        .opacity(0.8)
+                        .fill(Colors.blue2)
+//                        .opacity(0.95)
                         .mask(
                             Image("star")
                             .resizable()
