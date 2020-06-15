@@ -57,6 +57,8 @@ class Tasks: ObservableObject {
         } catch {
             print("failed restoring past tasks")
         }
+        
+        calculatePercentageCompleted()
     }
     
     func save(task: Task) {
