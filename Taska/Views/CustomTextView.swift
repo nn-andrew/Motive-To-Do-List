@@ -11,12 +11,12 @@ import Combine
 
 public struct CustomTextView: View {
     @Binding public var text: String
-    @Binding public var textColor: UIColor
+    @Binding public var taskDone: Bool
     @Binding var desiredHeight: CGFloat
     var onCommit: (() -> Void)
     
     public var body: some View {
-        TextView_UI(text: $text, textColor: $textColor, desiredHeight: $desiredHeight, onEditingChanged: {_ in
+        TextView_UI(text: $text, taskDone: $taskDone, desiredHeight: $desiredHeight, onEditingChanged: {_ in
             
         }, onCommit: self.onCommit)
     }
@@ -26,7 +26,7 @@ struct TextView_UI : UIViewRepresentable {
     typealias UIViewType = UITextView
     
     @Binding var text: String
-    @Binding var textColor: UIColor
+    @Binding var taskDone: Bool
     @Binding var desiredHeight: CGFloat
     var onEditingChanged: ((String) -> Void)
     var onCommit: (() -> Void)
@@ -46,9 +46,7 @@ struct TextView_UI : UIViewRepresentable {
 //        }
         
         textView.delegate = context.coordinator
-                
-        textView.textColor = self.textColor
-
+        
         textView.translatesAutoresizingMaskIntoConstraints = false
         
         textView.textContainerInset = .zero
@@ -67,7 +65,21 @@ struct TextView_UI : UIViewRepresentable {
 //            textView.font = font.font_ui
 //        }
         
-        textView.textColor = self.textColor
+        if context.environment.colorScheme == .light {
+            if self.taskDone {
+                textView.textColor = UIColor.white
+            } else {
+                textView.textColor = UIColor.black
+            }
+        } else {
+            if self.taskDone {
+                textView.textColor = UIColor.white
+            } else {
+                textView.textColor = UIColor.white
+            }
+        }
+        
+//        textView.textColor = self.textColor
         
         setHeight(textView: textView)
     }
@@ -80,6 +92,12 @@ struct TextView_UI : UIViewRepresentable {
             self.desiredHeight =  newSize.height
         }
     }
+    
+//    func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        guard UIApplication.shared.applicationState == .inactive else {
+//            return
+//        }
+//    }
     
     class Coordinator: NSObject, UITextViewDelegate {
         var field: TextView_UI

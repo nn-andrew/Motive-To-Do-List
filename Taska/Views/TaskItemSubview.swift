@@ -11,6 +11,7 @@ import PartialSheet
 import UIKit
 
 struct TaskItemSubview: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var partialSheetManager: PartialSheetManager
     @EnvironmentObject var tasks: Tasks
     @EnvironmentObject var rewards: Rewards
@@ -22,7 +23,7 @@ struct TaskItemSubview: View {
     @State private var offset = CGSize.zero
     @State var title: String
     @State var desiredHeight: CGFloat = 60
-    @State var textColor: UIColor = UIColor.black
+    @State var taskDone: Bool = false
 
 //    @State var backLayerOpacity: Double = 0
     var viewMinHeight = CGFloat(60)
@@ -77,7 +78,7 @@ struct TaskItemSubview: View {
 //                                )
 //                        )
                     RoundedRectangle(cornerRadius: 18)
-                        .fill(self.task.taskDone ? Colors.blue2 : Color.white)
+                        .fill(self.task.taskDone ? (self.colorScheme == .light ? Colors.lightModeTaskCompleted : Colors.darkModeTaskCompleted) : (self.colorScheme == .light ? Colors.lightModeTaskIncomplete : Colors.darkModeTaskIncomplete))
 //                        .opacity(0.9)
                         .frame(width: geo.size.width+1)
                         .frame(minHeight: self.viewMinHeight + 1)
@@ -85,6 +86,8 @@ struct TaskItemSubview: View {
                     HStack() {
                         ZStack {
                             Button(action: {
+                                self.taskDone = true
+                                
                                 self.tasks.animated = true
                                 self.task.toggleTaskDone()
                                 self.lightImpact()
@@ -92,7 +95,7 @@ struct TaskItemSubview: View {
                                 self.rewards.updateUpcomingReward()
                                 if self.task.taskDone == true {
 //                                    self.task.title = self.task.titleWithStrikethrough
-                                    self.textColor = UIColor.white
+                                    
                                     self.tasks.totalCompletedTasksCount += 1
                                     for reward in self.rewards.rewards {
                                         reward.changeCompletedTasks(completedTasks: reward.completedTasks + 1)
@@ -105,7 +108,6 @@ struct TaskItemSubview: View {
                                             self.rewards.updateUpcomingReward()
 //                                            self.tasks.completedTasksForNextReward = 0
                                         }) {
-                                            
                                             RewardReachedModal()
                                                 .environmentObject(self.rewards)
                                                 .frame(height: UIScreen.main.bounds.size.height * 0.6)
@@ -113,7 +115,8 @@ struct TaskItemSubview: View {
                                         
                                     }
                                 } else {
-                                    self.textColor = UIColor.black
+                                    self.taskDone = false
+                                    
                                     if self.tasks.totalCompletedTasksCount > 0 {
                                         self.tasks.totalCompletedTasksCount -= 1
                                     }
@@ -133,7 +136,7 @@ struct TaskItemSubview: View {
                                         .frame(width: 60, height: 60)
                                     
                                     RoundedRectangle(cornerRadius: 8)
-                                        .stroke(self.task.taskDone ? Colors.grey0 : Colors.grey1, lineWidth: 3)
+                                        .stroke(Colors.grey0, lineWidth: 3)
                                         //.padding(.leading, 40)
                                         .frame(width: 30, height: 30)
                                     
@@ -162,8 +165,8 @@ struct TaskItemSubview: View {
                         GeometryReader { geo1 in
                             VStack {
                                 Spacer()
-                                CustomTextView(text: self.$title, textColor: self.$textColor, desiredHeight: self.$desiredHeight, onCommit: {
-                                    self.textColor = self.task.taskDone ? UIColor.white : UIColor.black
+                                CustomTextView(text: self.$title, taskDone: self.$taskDone, desiredHeight: self.$desiredHeight, onCommit: {
+                                    
                                     if self.title == "" {
                                         self.tasks.removeTask(task: self.task)
                                     } else {
@@ -186,7 +189,12 @@ struct TaskItemSubview: View {
 //        .offset(x: offset.width < 0 ? offset.width : 0, y: 0)
 //        .frame(minHeight: self.viewMinHeight)
         .frame(height: max(self.desiredHeight+10, self.viewMinHeight))
-
+        .onAppear(perform: {
+            if self.task.taskDone {
+                self.taskDone = true
+            }
+        })
+            
         .gesture(
             DragGesture(minimumDistance: 20, coordinateSpace: .local)
                 .onChanged { gesture in
@@ -204,9 +212,6 @@ struct TaskItemSubview: View {
 //                    self.backLayerOpacity = 0
                 }
         )
-        .onAppear(perform: {
-            self.textColor = self.task.taskDone ? UIColor.white : UIColor.black
-        })
     }
     
     func lightImpact() {

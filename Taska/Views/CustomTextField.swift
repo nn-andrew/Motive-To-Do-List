@@ -73,11 +73,6 @@ struct TextField_UI : UIViewRepresentable {
     }
     
     func updateUIView(_ textField: UITextField, context: Context) {
-//        if let font = context.environment.font, font.font_ui != textField.font {
-//            textField.font = font.font_ui
-//        }
-        
-//        setHeight(textField: textField)
         
     }
     
@@ -112,9 +107,9 @@ struct TextField_UI : UIViewRepresentable {
         func textFieldDidChangeSelection(_ textField: UITextField) {
             field.text = textField.text ?? ""
         }
-        
+                
         func textFieldDidBeginEditing(_ textField: UITextField) {
-            
+            textField.returnKeyType = UIReturnKeyType.done
         }
         
         func textFieldDidEndEditing(_ textField: UITextField) {

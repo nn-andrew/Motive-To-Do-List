@@ -28,14 +28,13 @@
 		AB6E5C132457ABC8006A7AC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */; };
 		AB6E5C172457ABCD006A7AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6E5C162457ABCD006A7AC0 /* Assets.xcassets */; };
 		AB6E5C1A2457ABCD006A7AC0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6E5C192457ABCD006A7AC0 /* Preview Assets.xcassets */; };
-		AB6E5C1D2457ABCD006A7AC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6E5C1B2457ABCD006A7AC0 /* LaunchScreen.storyboard */; };
 		AB6E5C282457ABCD006A7AC0 /* esportstrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C272457ABCD006A7AC0 /* esportstrackerTests.swift */; };
 		AB6E5C4B245C083C006A7AC0 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C45245C083B006A7AC0 /* TasksView.swift */; };
-		AB6E5C4C245C083C006A7AC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C46245C083B006A7AC0 /* ContentView.swift */; };
 		AB6E5C4D245C083C006A7AC0 /* TaskItemSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C47245C083B006A7AC0 /* TaskItemSubview.swift */; };
 		AB6E5C4E245C083C006A7AC0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C49245C083B006A7AC0 /* Task.swift */; };
 		AB6E5C4F245C083C006A7AC0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C4A245C083B006A7AC0 /* Colors.swift */; };
 		AB6E5C54245E5308006A7AC0 /* NewTaskModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E5C53245E5308006A7AC0 /* NewTaskModal.swift */; };
+		ABE853502495DEBF00E88F3C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE8534F2495DEBF00E88F3C /* Launch Screen.storyboard */; };
 		FD10F8B947502946CE3EAD3D /* Pods_TaskaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13387E006F5BCDCEEB24FC0A /* Pods_TaskaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,22 +70,21 @@
 		AB66D63A2480EBAE00059E67 /* PartialSheet */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PartialSheet; path = ../../../../Desktop/PartialSheet; sourceTree = "<group>"; };
 		AB66D6432484BCFE00059E67 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		AB66D6452484C0A700059E67 /* Taska-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Taska-Prefix.pch"; sourceTree = "<group>"; };
-		AB6E5C0D2457ABC8006A7AC0 /* Taska.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taska.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB6E5C0D2457ABC8006A7AC0 /* Motive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6E5C102457ABC8006A7AC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AB6E5C162457ABCD006A7AC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB6E5C192457ABCD006A7AC0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AB6E5C1C2457ABCD006A7AC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB6E5C1E2457ABCD006A7AC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6E5C232457ABCD006A7AC0 /* TaskaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6E5C272457ABCD006A7AC0 /* esportstrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = esportstrackerTests.swift; sourceTree = "<group>"; };
 		AB6E5C292457ABCD006A7AC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6E5C45245C083B006A7AC0 /* TasksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
-		AB6E5C46245C083B006A7AC0 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AB6E5C47245C083B006A7AC0 /* TaskItemSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskItemSubview.swift; sourceTree = "<group>"; };
 		AB6E5C49245C083B006A7AC0 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		AB6E5C4A245C083B006A7AC0 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		AB6E5C53245E5308006A7AC0 /* NewTaskModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskModal.swift; sourceTree = "<group>"; };
+		ABE8534F2495DEBF00E88F3C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		ADDDAB90D757028852CEE7B4 /* Pods-TaskaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskaTests.debug.xcconfig"; path = "Target Support Files/Pods-TaskaTests/Pods-TaskaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF3E96814906B455F19B1C69 /* Pods-Taska.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taska.debug.xcconfig"; path = "Target Support Files/Pods-Taska/Pods-Taska.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,7 +156,7 @@
 		AB6E5C0E2457ABC8006A7AC0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB6E5C0D2457ABC8006A7AC0 /* Taska.app */,
+				AB6E5C0D2457ABC8006A7AC0 /* Motive.app */,
 				AB6E5C232457ABCD006A7AC0 /* TaskaTests.xctest */,
 			);
 			name = Products;
@@ -175,9 +173,9 @@
 				AB6E5C122457ABC8006A7AC0 /* SceneDelegate.swift */,
 				AB66D6452484C0A700059E67 /* Taska-Prefix.pch */,
 				AB6E5C162457ABCD006A7AC0 /* Assets.xcassets */,
-				AB6E5C1B2457ABCD006A7AC0 /* LaunchScreen.storyboard */,
 				AB6E5C1E2457ABCD006A7AC0 /* Info.plist */,
 				AB6E5C182457ABCD006A7AC0 /* Preview Content */,
+				ABE8534F2495DEBF00E88F3C /* Launch Screen.storyboard */,
 			);
 			path = Taska;
 			sourceTree = "<group>";
@@ -202,7 +200,6 @@
 		AB6E5C44245C083B006A7AC0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AB6E5C46245C083B006A7AC0 /* ContentView.swift */,
 				AB6E5C45245C083B006A7AC0 /* TasksView.swift */,
 				AB6E5C47245C083B006A7AC0 /* TaskItemSubview.swift */,
 				AB66D6222464B0D200059E67 /* GiftBoxSubview.swift */,
@@ -251,7 +248,7 @@
 				AB66D6362480E81000059E67 /* PartialSheet */,
 			);
 			productName = esportstracker;
-			productReference = AB6E5C0D2457ABC8006A7AC0 /* Taska.app */;
+			productReference = AB6E5C0D2457ABC8006A7AC0 /* Motive.app */;
 			productType = "com.apple.product-type.application";
 		};
 		AB6E5C222457ABCD006A7AC0 /* TaskaTests */ = {
@@ -321,12 +318,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB66D6212464953C00059E67 /* Roboto-Bold.ttf in Resources */,
-				AB6E5C1D2457ABCD006A7AC0 /* LaunchScreen.storyboard in Resources */,
 				AB66D61E2464953B00059E67 /* Rubik-Bold.ttf in Resources */,
 				AB66D6202464953B00059E67 /* Roboto-Medium.ttf in Resources */,
 				AB6E5C1A2457ABCD006A7AC0 /* Preview Assets.xcassets in Resources */,
 				AB6E5C172457ABCD006A7AC0 /* Assets.xcassets in Resources */,
 				AB66D61F2464953B00059E67 /* Rubik-Medium.ttf in Resources */,
+				ABE853502495DEBF00E88F3C /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +439,6 @@
 				AB66D6442484BCFF00059E67 /* CustomTextView.swift in Sources */,
 				AB50357C248768E500E734D9 /* AboutView.swift in Sources */,
 				AB6E5C4D245C083C006A7AC0 /* TaskItemSubview.swift in Sources */,
-				AB6E5C4C245C083C006A7AC0 /* ContentView.swift in Sources */,
 				AB6E5C54245E5308006A7AC0 /* NewTaskModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,17 +460,6 @@
 			targetProxy = AB6E5C242457ABCD006A7AC0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		AB6E5C1B2457ABCD006A7AC0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AB6E5C1C2457ABCD006A7AC0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AB6E5C2A2457ABCD006A7AC0 /* Debug */ = {
@@ -609,9 +594,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.six.taska;
-				PRODUCT_NAME = Taska;
+				PRODUCT_NAME = Motive;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -631,9 +616,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.six.taska;
-				PRODUCT_NAME = Taska;
+				PRODUCT_NAME = Motive;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

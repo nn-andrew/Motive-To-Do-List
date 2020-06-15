@@ -58,7 +58,7 @@ struct DashboardSubview: View {
             }
             HStack {
                 if self.rewards.rewards.count > 0 {
-                    Text(String("\(self.rewards.upcomingReward.completedTasksNeeded - self.rewards.upcomingReward.completedTasks) until: \(self.rewards.upcomingReward.title)"))
+                    Text(String("\(self.rewards.upcomingReward.completedTasksNeeded - self.rewards.upcomingReward.completedTasks) until:\n\(self.rewards.upcomingReward.title)"))
                         .foregroundColor(.white)
                         .font(.custom("Rubik-Medium", size: 18))
                 } else {

@@ -58,7 +58,7 @@ struct RewardReachedModal: View {
                                 .fontWeight(.semibold)
                                 .padding(10)
                                 .foregroundColor(Color.white)
-                                .background(Color.yellow)
+                                .background(Colors.yellow0)
                                 .cornerRadius(12)
                                 .padding(.bottom, 20)
 //                                .padding(10)
@@ -77,7 +77,7 @@ struct RewardReachedModal: View {
     @ViewBuilder
     var rewardTitle: some View {
         Text(self.title)
-            .font(.custom("Rubik-Medium", size: 18))
+            .font(.custom("Rubik-Medium", size: 20))
     }
 }
 

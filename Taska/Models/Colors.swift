@@ -19,14 +19,33 @@ struct Colors: View {
     static let blue0 = Color(red: 28/255, green: 127/255, blue: 255/255)
     static let blue1 = Color(red: 0/255, green: 75/255, blue: 217/255)
     static let blue2 = Color(red: 86/255, green: 125/255, blue: 244/255)
+    static let blue3 = Color(red: 242/255, green: 245/255, blue: 255/255)
+    static let lightBlue0 = Color(red: 195/255, green: 211/255, blue: 247/255)
+    static let darkBlue0 = Color(red: 30/255, green: 34/255, blue: 74/255)
+    static let darkBlue1 = Color(red: 65/255, green: 71/255, blue: 112/255)
+    
+    static let yellow0 = Color(red: 255/255, green: 186/255, blue: 48/255)
     
     static let grey0 = Color(red: 240/255, green: 240/255, blue: 240/255)
     static let grey1 = Color(red: 230/255, green: 230/255, blue: 230/255)
+    static let systemGray5 = Color(red: 44/255, green: 44/255, blue: 46/255)
     
     static let white0 = Color(red: 255/255, green: 255/255, blue: 255/255)
     
     static let redGradient = Gradient(colors: [Colors.red0, Colors.red1])
     static let blueGradient = Gradient(colors: [Colors.blue0, Colors.blue1])
+    
+    static let lightModeBackground = blue3
+    static let darkModeBackground = Color.black
+    
+    static let lightModeDashboardBackground = blue2
+    static let darkModeDashboardBackground = blue2
+    
+    static let lightModeTaskIncomplete = Color.white
+    static let lightModeTaskCompleted = blue2
+    
+    static let darkModeTaskIncomplete = systemGray5
+    static let darkModeTaskCompleted = blue2
     
     var body: some View {
         Text("Hello World!")

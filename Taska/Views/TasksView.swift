@@ -8,8 +8,10 @@
 
 import SwiftUI
 import PartialSheet
+import UIKit
 
 struct TasksView: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var partialSheetManager: PartialSheetManager
     @EnvironmentObject var tasks: Tasks
     @EnvironmentObject var rewards: Rewards
@@ -17,13 +19,15 @@ struct TasksView: View {
     
 //    @State var hideCompletedTasks: Bool = false
     
+    
+    
     var body: some View {
         GeometryReader { geo in
 //            NavigationView {
 //                ZStack {
             ZStack {
                 Rectangle()
-                    .fill(Color(red: 242/255, green: 245/255, blue: 255/255))
+                    .fill(self.colorScheme == .light ? Colors.lightModeBackground : Colors.darkModeBackground)
                     .frame(width: geo.size.width, height: geo.size.height)
                 VStack(spacing: 0) {
                     
@@ -31,7 +35,7 @@ struct TasksView: View {
                     ZStack {
                         Rectangle()
 //                            .fill(LinearGradient(gradient: Colors.blueGradient, startPoint: .leading, endPoint: .trailing))
-                            .fill(Colors.blue2)
+                            .fill(self.colorScheme == .light ? Colors.lightModeDashboardBackground : Colors.darkModeDashboardBackground)
                             .frame(width: geo.size.width * 2, height: 320)
                             .position(x: geo.size.width * 0.5, y: 0)
 //                            .padding(.top, -100)
@@ -182,7 +186,7 @@ struct TasksView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 18)
                     .fill(Colors.blue2)
-                    .opacity(0.3)
+//                    .opacity(0.3)
                     .frame(width: geo.size.width, height: geo.size.height)
                 .frame(height: 60)
                 HStack {
@@ -207,7 +211,7 @@ struct TasksView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 18)
                     .fill(Colors.blue2)
-                    .opacity(0.3)
+//                    .opacity(0.3)
                     .frame(width: geo.size.width, height: geo.size.height)
                 HStack {
                     Rectangle()
