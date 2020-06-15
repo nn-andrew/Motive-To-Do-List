@@ -1,9 +1,9 @@
 //
 //  TasksView.swift
-//  esportstracker
+//  Taska
 //
 //  Created by Andrew Nguyen on 4/29/20.
-//  Copyright © 2020 six. All rights reserved.
+//  Copyright © 2020 medusza. All rights reserved.
 //
 
 import SwiftUI

@@ -3,7 +3,7 @@
 //  Taska
 //
 //  Created by Andrew Nguyen on 5/31/20.
-//  Copyright © 2020 six. All rights reserved.
+//  Copyright © 2020 medusza. All rights reserved.
 //
 
 import SwiftUI

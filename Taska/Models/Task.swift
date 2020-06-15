@@ -3,7 +3,7 @@
 //  Taska
 //
 //  Created by Andrew Nguyen on 4/30/20.
-//  Copyright © 2020 six. All rights reserved.
+//  Copyright © 2020 medusza. All rights reserved.
 //
 
 import SwiftUI
@@ -91,30 +91,27 @@ class Tasks: ObservableObject {
         //MARK: not removed immediately because View still depends on reference to task
         
         print("removeTask")
-        let realm = try! Realm()
-        try! realm.write {
-            if let index = tasks.firstIndex(where: {$0.id == task.id}) {
-                tasks.remove(at: index)
-    //            for task in completedTasks {
-    //                if index < task.reentryIndex {
-    //                    task.reentryIndex -= 1
-    //                }
-    //            }
-            } else {
-                if let index = completedTasks.firstIndex(where: {$0.id == task.id}) {
-                    completedTasks.remove(at: index)
-                }
+        if let index = tasks.firstIndex(where: {$0.id == task.id}) {
+            tasks.remove(at: index)
+//            for task in completedTasks {
+//                if index < task.reentryIndex {
+//                    task.reentryIndex -= 1
+//                }
+//            }
+        } else {
+            if let index = completedTasks.firstIndex(where: {$0.id == task.id}) {
+                completedTasks.remove(at: index)
             }
+        }
 
-            for t in tasks {
-                if t.reentryIndex > task.reentryIndex {
-                    t.reentryIndex -= 1
-                }
+        for t in tasks {
+            if t.reentryIndex > task.reentryIndex {
+                t.reentryIndex -= 1
             }
-            for t in completedTasks {
-                if t.reentryIndex > task.reentryIndex {
-                    t.reentryIndex -= 1
-                }
+        }
+        for t in completedTasks {
+            if t.reentryIndex > task.reentryIndex {
+                t.reentryIndex -= 1
             }
         }
         

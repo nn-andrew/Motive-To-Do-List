@@ -3,7 +3,7 @@
 //  Taska
 //
 //  Created by Andrew Nguyen on 5/1/20.
-//  Copyright © 2020 six. All rights reserved.
+//  Copyright © 2020 medusza. All rights reserved.
 //
 
 import SwiftUI
@@ -32,7 +32,6 @@ struct NewTaskModal: View {
 //                TextField("Add task title", text: self.$new_title) {
                     if self.new_title != "" {
                         self.tasks.addTask(task: Task(title: self.new_title))
-//                        self.tasks.tasks[0].changeTitle(new_title: self.new_title)
                         self.tasks.calculatePercentageCompleted()
                         self.new_title = ""
                     }

@@ -3,7 +3,7 @@
 //  Taska
 //
 //  Created by Andrew Nguyen on 5/7/20.
-//  Copyright © 2020 six. All rights reserved.
+//  Copyright © 2020 medusza. All rights reserved.
 //
 
 import SwiftUI
@@ -128,13 +128,6 @@ struct GiftBoxSubview: View {
                     .frame(width: 70, height: 70)
                     .offset(y: 5)
             }
-            
-//            VStack {
-//                RoundedRectangle(cornerRadius: 6)
-//                    .fill(Colors.red1)
-//                    .frame(width: 23, height: 28)
-//                    .offset(y: -18)
-//            }
             VStack {
                 RoundedRectangle(cornerRadius: 0)
                     .fill(Colors.red1)

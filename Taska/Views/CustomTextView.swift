@@ -3,7 +3,7 @@
 //  Taska
 //
 //  Created by Andrew Nguyen on 5/31/20.
-//  Copyright © 2020 six. All rights reserved.
+//  Copyright © 2020 medusza. All rights reserved.
 //
 
 import SwiftUI
@@ -78,9 +78,7 @@ struct TextView_UI : UIViewRepresentable {
                 textView.textColor = UIColor.white
             }
         }
-        
-//        textView.textColor = self.textColor
-        
+                
         setHeight(textView: textView)
     }
     
@@ -92,12 +90,6 @@ struct TextView_UI : UIViewRepresentable {
             self.desiredHeight =  newSize.height
         }
     }
-    
-//    func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        guard UIApplication.shared.applicationState == .inactive else {
-//            return
-//        }
-//    }
     
     class Coordinator: NSObject, UITextViewDelegate {
         var field: TextView_UI
@@ -124,7 +116,6 @@ struct TextView_UI : UIViewRepresentable {
             if text == "\n" {
                 field.onCommit()
                 textView.resignFirstResponder()
-//                textView.text = ""
                 return false
             }
             return true

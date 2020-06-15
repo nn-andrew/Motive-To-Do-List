@@ -1,9 +1,9 @@
 //
 //  TaskItemSubview.swift
-//  esportstracker
+//  Taska
 //
 //  Created by Andrew Nguyen on 4/29/20.
-//  Copyright © 2020 six. All rights reserved.
+//  Copyright © 2020 medusza. All rights reserved.
 //
 
 import SwiftUI
@@ -69,14 +69,6 @@ struct TaskItemSubview: View {
                         .mask(
                             RoundedRectangle(cornerRadius: 18)
                         )
-//                        .overlay(
-//                            RoundedRectangle(cornerRadius: 18)
-//                                .stroke(Color.red)
-//                                .shadow(color: Colors.blue2, radius: 3, x: -2, y: -2)
-//                                .clipShape(
-//                                    RoundedRectangle(cornerRadius: 18)
-//                                )
-//                        )
                     RoundedRectangle(cornerRadius: 18)
                         .fill(self.task.taskDone ? (self.colorScheme == .light ? Colors.lightModeTaskCompleted : Colors.darkModeTaskCompleted) : (self.colorScheme == .light ? Colors.lightModeTaskIncomplete : Colors.darkModeTaskIncomplete))
 //                        .opacity(0.9)
@@ -147,20 +139,10 @@ struct TaskItemSubview: View {
                                             Image("checkmark")
                                                 .resizable()
                                                 .scaledToFit()
-//                                                .frame(width: 20, height: 20)
                                         )
                                         .opacity(self.task.taskDone ? 1 : 0)
                                 }
                             }
-//                            .sheet(isPresented: self.$rewardReached, onDismiss:
-//                                {
-//                                    self.rewards.transferReward(reward: self.rewards.rewards[0])
-//                                    self.rewards.updateUpcomingReward()
-//
-//                            }) {
-//                                RewardReachedModal()
-//                                    .environmentObject(self.rewards)
-//                            }
                         }
                         GeometryReader { geo1 in
                             VStack {
