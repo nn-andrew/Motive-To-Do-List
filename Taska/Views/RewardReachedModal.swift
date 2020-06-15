@@ -47,8 +47,11 @@ struct RewardReachedModal: View {
                         .padding(.bottom, 40)
                     Button(action: {
                         print(self.rewards.rewards)
+                        if self.rewards.rewards.count > 0 {
+                            self.rewards.removeReward(index: 0)
+                        }
                         self.rewards.updateUpcomingReward()
-                        self.rewards.upcomingReward = Reward()
+//                        self.rewards.upcomingReward = Reward()
                         self.partialSheetManager.closePartialSheet()
                     }) {
 //                        ZStack {
@@ -72,7 +75,7 @@ struct RewardReachedModal: View {
         }
         .onAppear(perform: {
             self.title = self.rewards.upcomingReward.title
-            self.rewards.removeReward(index: 0)
+//            self.rewards.removeReward(index: 0)
         })
     }
     

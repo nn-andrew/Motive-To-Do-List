@@ -29,7 +29,7 @@ struct NewTaskModal: View {
                 // Sets the task title after user inputs into text field
                 //TextEditor(text: self.$new_title, task: self.task, desiredHeight: self.$desiredHeight, isFirstResponder: false, onCommit: {
                 CustomTextField(placeholderText: "Add task title", text: self.$new_title, desiredHeight: self.$desiredHeight, isFirstResponder: true, onCommit: {
-                    
+
                     if self.new_title != "" {
                         self.lightImpact()
                         self.tasks.addTask(task: Task(title: self.new_title))
