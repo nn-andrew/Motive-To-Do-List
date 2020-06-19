@@ -78,9 +78,9 @@ class Rewards: ObservableObject {
                 $0.completedTasksNeeded - $0.completedTasks < $1.completedTasksNeeded - $1.completedTasks
             }
         }
-//        if shouldUpdate {
-            updateUpcomingReward()
-//        }
+
+        updateUpcomingReward()
+
         print(rewards)
         
         save(reward: reward)
@@ -91,57 +91,14 @@ class Rewards: ObservableObject {
         
         rewardsToBeDeleted.append(rewards[index])
         rewards.remove(at: index)
-        
-//        if rewards.count == 0 {
-//            upcomingReward = Reward()
-//        }
-//        calculatePercentageCompleted()
     }
-    
-//    func calculatePercentageCompleted() {
-//        percentageCompleted = Double(completedRewards.count) / Double(rewards.count + completedRewards.count)
-//    }
-    
-//    func updateUpcomingReward() -> Reward {
-//        if rewards.count == 0 {
-//            return Reward()
-//        } else {
-//            var updateUpcomingReward = rewards[0]
-//
-//            for reward in rewards {
-//                if reward.completedTasksNeeded < updateUpcomingReward.completedTasksNeeded {
-//                    updateUpcomingReward = reward
-//                }
-//            }
-//
-//            return updateUpcomingReward
-//        }
-//    }
     
     func updateUpcomingReward() {
         // determine the which reward is closest to being reached
-//        var newUpcomingReward: Reward = Reward()
-//        var resultFound: Bool = false
-        
-//        for reward in rewards {
-//            if reward.completedTasksNeeded - reward.completedTasks < upcomingReward.completedTasksNeeded - upcomingReward.completedTasks {
-//                newUpcomingReward = reward
-////                resultFound = true
-//            }
-//            else if reward.completedTasksNeeded - reward.completedTasks == upcomingReward.completedTasksNeeded - upcomingReward.completedTasks {
-//                newUpcomingReward = reward
-//            }
-//        }
-//
-//        upcomingReward = newUpcomingReward
-//        if rewards.count > 1 {
-//            if rewards[0].completedTasksNeeded - rewards[0].completedTasks == rewards[1].completedTasksNeeded - rewards[1].completedTasks {
-//                rewards[0].changeTitle(new_title: "\(rewards[0].title), \(rewards[1].title)")
-//                removeReward(index: 1)
-//            }
-//        }
         if rewards.count > 0 {
             upcomingReward = rewards[0]
+        } else {
+            upcomingReward = Reward()
         }
 //        print(newUpcomingReward)
     }

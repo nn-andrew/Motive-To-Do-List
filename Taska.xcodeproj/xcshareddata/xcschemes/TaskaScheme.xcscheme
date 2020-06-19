@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AB6E5C0C2457ABC8006A7AC0"
-               BuildableName = "Taska.app"
+               BuildableName = "Motive.app"
                BlueprintName = "Taska"
                ReferencedContainer = "container:Taska.xcodeproj">
             </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB6E5C0C2457ABC8006A7AC0"
-            BuildableName = "Taska.app"
+            BuildableName = "Motive.app"
             BlueprintName = "Taska"
             ReferencedContainer = "container:Taska.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB6E5C0C2457ABC8006A7AC0"
-            BuildableName = "Taska.app"
+            BuildableName = "Motive.app"
             BlueprintName = "Taska"
             ReferencedContainer = "container:Taska.xcodeproj">
          </BuildableReference>

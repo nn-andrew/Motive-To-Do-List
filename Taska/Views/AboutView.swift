@@ -12,7 +12,7 @@ struct AboutView: View {
     var body: some View {
         GeometryReader { geo in
             VStack(spacing: 10) {
-                Text("Copyright © 2020 Andrew N. All right reserved.")
+                Text("Copyright © 2020 Andrew Nguyen. All rights reserved.")
                 Text("Gift icon made by Freepik from www.flaticon.com")
             }
             .frame(maxWidth: geo.size.width, maxHeight: geo.size.height)

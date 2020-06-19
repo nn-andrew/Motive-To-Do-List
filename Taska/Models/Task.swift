@@ -24,6 +24,17 @@ class Tasks: ObservableObject {
     
     init() {
         
+        let config = Realm.Configuration(
+          // Set the new schema version. This must be greater than the previously used
+          // version (if you've never set a schema version before, the version is 0).
+          schemaVersion: 1,
+          migrationBlock: { migration, oldSchemaVersion in
+            if oldSchemaVersion < 1 {
+              // Apply any necessary migration logic here.
+            }
+          })
+        Realm.Configuration.defaultConfiguration = config
+        
         let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
         print(realmURL)
         
@@ -182,8 +193,6 @@ public class Task: Object, Identifiable {
     // incompleted tasks list. Useful for reverting a completed task
     // to incomplete and putting it in the correct order in the list.
     @objc dynamic var reentryIndex: Int = -1
-    
-//    var opacity = 1
     
     required init() {
         

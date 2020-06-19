@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Colors: View {
     static let red0 = Color(red: 255/255, green: 94/255, blue: 94/255)
-    static let red1 = Color(red: 235/255, green: 59/255, blue: 86/255)
+    static let red1 = Color(red: 220/255, green: 60/255, blue: 76/255)
     static let red2 = Color(red: 255/255, green: 120/255, blue: 132/255)
     static let red3 = Color(red: 212/255, green: 6/255, blue: 34/255)
     

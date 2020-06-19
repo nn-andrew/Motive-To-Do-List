@@ -50,32 +50,33 @@ struct DashboardSubview: View {
     
     @ViewBuilder
     var textualInfo: some View {
-        VStack(spacing: 4) {
+        VStack(spacing: 2) {
             HStack {
                 Text(String(self.weekdayDict[self.weekday] ?? "date error"))
                     .foregroundColor(.white)
-                    .font(.custom("Rubik-Medium", size: 34))
+                    .font(.custom("Rubik-Medium", size: 30))
                 Spacer()
             }
             HStack {
                 if self.rewards.rewards.count > 0 {
-                    Text(String("\(self.rewards.upcomingReward.completedTasks)/\(self.rewards.upcomingReward.completedTasksNeeded): \(self.rewards.upcomingReward.title)"))
+//                    Text(String("\(self.rewards.upcomingReward.completedTasks)/\(self.rewards.upcomingReward.completedTasksNeeded): \(self.rewards.upcomingReward.title)"))
+                    Text(String("\(self.rewards.upcomingReward.completedTasksNeeded - self.rewards.upcomingReward.completedTasks) until: \(self.rewards.upcomingReward.title)"))
                         .foregroundColor(.white)
-                        .font(.custom("Rubik-Medium", size: 17))
+                        .font(.custom("Rubik-Medium", size: 18))
                 } else {
-                    Text(String(Int(self.tasks.percentageCompleted * 100)))
+                    Text(String("\(Int(self.tasks.percentageCompleted * 100))%"))
                         .foregroundColor(.white)
                         .font(.custom("Rubik-Medium", size: 20))
-                    Text("%")
-                        .offset(x: -6)
-                        .foregroundColor(.white)
-                        .font(.custom("Rubik-Medium", size: 20))
+//                    Text("%")
+//                        .offset(x: -6)
+//                        .foregroundColor(.white)
+//                        .font(.custom("Rubik-Medium", size: 20))
                 }
                 Spacer()
             }
-//            .frame(height: 45)
+            .frame(height: 44, alignment: .topLeading)
         }
-        .frame(height: 60)
+//        .frame(height: 50)
     }
     
     var progressBar: some View {

@@ -55,12 +55,12 @@ struct NewRewardModal: View {
                 self.stepper
 //                    .offset(y: 10)
                 
-                Spacer()
+//                Spacer()
             }
-            .padding([.top, .bottom], 10)
+//            .padding([.top, .bottom], 10)
 //            .frame(height: geo.size.height)
         }
-        .frame(height: 140)
+//        .frame(height: 140)
     }
     
     var stepper: some View {

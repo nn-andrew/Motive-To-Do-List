@@ -48,6 +48,7 @@ struct TasksView: View {
                                         
                                     }) {
                                         OptionsModal()//hideCompletedTasks: self.$hideCompletedTasks)
+                                            .frame(height: geo.size.height * 0.2)
                                     }
                                 }) {
                                     ZStack {
@@ -138,7 +139,7 @@ struct TasksView: View {
                                 print("text sheet dismissed")
                             }) {
                                 NewTaskModal()
-                                    .frame(width: geo.size.width * 0.8)
+                                    .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.12)
                             }
                             
                         }) {
@@ -151,7 +152,7 @@ struct TasksView: View {
                                 print("text sheet dismissed")
                             }) {
                                 NewRewardModal()
-                                    .frame(width: geo.size.width * 0.8)
+                                    .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.16)
                             }
                         }) {
                             self.AddRewardButton
@@ -159,7 +160,8 @@ struct TasksView: View {
                         }
                     }
                     .padding([.leading, .trailing], 20)
-//                    .position(x: geo.size.width * 0.5, y: geo.size.height * 0.32)
+                    .padding(.bottom, -15)
+//                    .position(x: geo.size.width * 0.5, y: geo.size.height * 0.8)
     //                .padding([.leading, .trailing], 100)
                     
 //                    Spacer()

@@ -10,11 +10,12 @@ import SwiftUI
 import PartialSheet
 
 struct RewardReachedModal: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var partialSheetManager: PartialSheetManager
     @EnvironmentObject var tasks: Tasks
     @EnvironmentObject var rewards: Rewards
     @State var isAtMaxScale = false
-    var giftScale: CGFloat = 1.06
+    var giftScale: CGFloat = 1.1
     
     @State var title = ""
     
@@ -26,17 +27,26 @@ struct RewardReachedModal: View {
                         .font(.system(size: 17, weight: .semibold))
                         .fontWeight(.semibold)
                         .frame(maxWidth: geo.size.width * 0.8)
-                        .padding(.top, 20)
+//                        .padding(.top, 30)
                     Text("You reached a reward:\n")
                         .font(.system(size: 16, weight: .regular))
-//                    Spacer()
                     self.rewardTitle
-                        .padding(.bottom, 30)
-                        .frame(maxWidth: geo.size.width * 0.8)
+                        .frame(maxWidth: geo.size.width * 0.8, maxHeight: 60, alignment: .top)
+//                        .padding(.top, -30)
+                }
+                .position(x: geo.size.width * 0.5, y: geo.size.height * 0.15)
+                
+                ZStack {
+                    Image("gift background")
+                        .resizable()
+                        .scaledToFit()
+                        .opacity(self.colorScheme == .light ? 0.6 : 1)
+                        .frame(width: geo.size.width * 0.9)
+                        .padding(.bottom, 40)
                     Image("gift")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 150.0, height: 150)
+                        .frame(width: geo.size.width * 0.42)
                         .scaleEffect(self.isAtMaxScale ? self.giftScale : 1)
                         .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true))
                         .onAppear(perform: {
@@ -45,30 +55,28 @@ struct RewardReachedModal: View {
                             }
                          })
                         .padding(.bottom, 40)
-                    Button(action: {
-                        self.rewards.updateUpcomingReward()
-//                        self.rewards.upcomingReward = Reward()
-                        self.partialSheetManager.closePartialSheet()
-                    }) {
-//                        ZStack {
-//                            RoundedRectangle(cornerRadius: 14)
-//                                .frame(width: 100, height: 40)
-//                                .fill(
-                            Text("Continue")
-                                .font(.system(size: 20))
-                                .fontWeight(.semibold)
-                                .padding(10)
-                                .foregroundColor(Color.white)
-                                .background(Colors.yellow0)
-                                .cornerRadius(12)
-                                .padding(.bottom, 20)
-//                                .padding(10)
-//                        }
-                    }
-                    Spacer()
                 }
+                .position(x: geo.size.width * 0.5, y: geo.size.height * 0.6)
+                
+                Button(action: {
+                    self.rewards.updateUpcomingReward()
+//                        self.rewards.upcomingReward = Reward()
+                    self.partialSheetManager.closePartialSheet()
+                }) {
+                    Text("Continue")
+//                        .font(.custom("Rubik-Medium", size: 20))
+                        .font(.system(size: 17))
+                        .fontWeight(.semibold)
+                        .padding([.top, .bottom], 15)
+                        .padding([.leading, .trailing], 90)
+                        .foregroundColor(Color.white)
+                        .background(Colors.yellow0)
+                        .cornerRadius(7)
+                }
+                .position(x: geo.size.width * 0.5, y: geo.size.height * 0.95)
             }
         }
+        .padding(20)
         .onAppear(perform: {
             self.title = self.rewards.upcomingReward.title
 //            self.rewards.removeReward(index: 0)
@@ -76,6 +84,7 @@ struct RewardReachedModal: View {
         .onDisappear(perform: {
             if self.rewards.rewards.count > 0 {
                 self.rewards.removeReward(index: 0)
+                self.rewards.updateUpcomingReward()
             }
         })
     }

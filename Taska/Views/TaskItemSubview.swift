@@ -29,6 +29,7 @@ struct TaskItemSubview: View {
     var viewMinHeight = CGFloat(60)
     var maxDragDistance = CGFloat(-70)
     
+    @ViewBuilder
     var body: some View {
         GeometryReader { geo in
 //            HStack {
@@ -102,7 +103,7 @@ struct TaskItemSubview: View {
                                         }) {
                                             RewardReachedModal()
                                                 .environmentObject(self.rewards)
-                                                .frame(height: UIScreen.main.bounds.size.height * 0.6)
+                                                .frame(height: UIScreen.main.bounds.size.height * 0.54)
                                         }
                                         
                                     }
@@ -157,6 +158,8 @@ struct TaskItemSubview: View {
 //                                    .foregroundColor(self.task.taskDone ? Color.white : Color.black)
                                     .padding(.trailing, 10)
                                     .frame(width: geo1.size.width, height: self.desiredHeight + 1)
+                                
+                                    
                                 Spacer()
                             }
                             .frame(height: geo1.size.height)
@@ -169,7 +172,7 @@ struct TaskItemSubview: View {
         }
 //        .offset(x: offset.width < 0 ? offset.width : 0, y: 0)
 //        .frame(minHeight: self.viewMinHeight)
-        .frame(height: max(self.desiredHeight+10, self.viewMinHeight))
+        .frame(minHeight: max(self.desiredHeight+10, self.viewMinHeight))
         .onAppear(perform: {
             if self.task.taskDone {
                 self.taskDone = true
@@ -194,6 +197,21 @@ struct TaskItemSubview: View {
                 }
         )
     }
+    
+//    @ViewBuilder
+//    func repeatsTag() {
+//        if self.task.isRepeating {
+//            Text("Repeats")
+//                .fontWeight(.bold)
+//                .font(.system(size: 20))
+//                .foregroundColor(.purple)
+//                .padding()
+//                .overlay(
+//                    RoundedRectangle(cornerRadius: 20)
+//                        .stroke(Color.purple, lineWidth: 5)
+//                )
+//        }
+//    }
     
     func lightImpact() {
         let generator = UIImpactFeedbackGenerator(style: .light)

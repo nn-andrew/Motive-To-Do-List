@@ -29,10 +29,13 @@ struct NewTaskModal: View {
                 // Sets the task title after user inputs into text field
                 //TextEditor(text: self.$new_title, task: self.task, desiredHeight: self.$desiredHeight, isFirstResponder: false, onCommit: {
                 CustomTextField(placeholderText: "Add task title", text: self.$new_title, desiredHeight: self.$desiredHeight, isFirstResponder: true, onCommit: {
-
+                    
                     if self.new_title != "" {
+                        let task = Task(title: self.new_title)
+                        
                         self.lightImpact()
-                        self.tasks.addTask(task: Task(title: self.new_title))
+                        self.tasks.addTask(task: task)
+                        
                         self.tasks.calculatePercentageCompleted()
                         self.new_title = ""
                     }
@@ -40,12 +43,10 @@ struct NewTaskModal: View {
                         self.partialSheetManager.closePartialSheet()
                     }
                 })
-                
                 Spacer()
             }
         }
-        .padding([.top, .bottom], 10)
-        .frame(height: 100)
+//        .padding([.top, .bottom], 10)
     }
     
     func lightImpact() {

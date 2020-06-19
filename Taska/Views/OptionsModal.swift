@@ -73,6 +73,7 @@ struct OptionsModal: View {
                 
                 AboutView()
                     .frame(maxHeight: 70)
+                    .padding(.top, 20)
             }
             .frame(width: geo.size.width, height: geo.size.height)
 
@@ -80,10 +81,8 @@ struct OptionsModal: View {
 //            .navigationBarHidden(true)
             .frame(height: geo.size.height)
         }
-        .padding([.top, .bottom], 10)
+        .padding([.top, .bottom], 30)
         .padding([.leading, .trailing], 30)
-        .frame(height: 220)
-        
     }
 }
 
