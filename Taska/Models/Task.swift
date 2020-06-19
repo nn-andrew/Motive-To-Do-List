@@ -69,6 +69,8 @@ class Tasks: ObservableObject {
             print("failed restoring past tasks")
         }
         
+        tasks.sort(by: { $0.createdAt > $1.createdAt })
+        
         calculatePercentageCompleted()
     }
     
@@ -85,7 +87,6 @@ class Tasks: ObservableObject {
 //        for task in completedTasks {
 //            task.reentryIndex += 1
 //        }
-        task.reentryIndex = totalTasksCount
         totalTasksCount += 1
         print(tasks)
         
@@ -118,17 +119,6 @@ class Tasks: ObservableObject {
                     completedTasks.remove(at: index)
                 }
             }
-
-            for t in tasks {
-                if t.reentryIndex > task.reentryIndex {
-                    t.reentryIndex -= 1
-                }
-            }
-            for t in completedTasks {
-                if t.reentryIndex > task.reentryIndex {
-                    t.reentryIndex -= 1
-                }
-            }
         }
         
         tasksForDeletion.append(task)
@@ -156,7 +146,7 @@ class Tasks: ObservableObject {
                 completedTasks.remove(at: index)
 //                tasks.insert(task, at: task.reentryIndex < tasks.count ? task.reentryIndex : tasks.count)
                 tasks.insert(task, at: 0)
-                tasks.sort(by: { $0.reentryIndex > $1.reentryIndex })
+                tasks.sort(by: { $0.createdAt > $1.createdAt })
             }
         }
         calculatePercentageCompleted()
@@ -189,10 +179,7 @@ public class Task: Object, Identifiable {
     
     @objc dynamic var taskDone = false
     
-    // reentryIndex stores the index the task was at when it was in the
-    // incompleted tasks list. Useful for reverting a completed task
-    // to incomplete and putting it in the correct order in the list.
-    @objc dynamic var reentryIndex: Int = -1
+    @objc dynamic var createdAt: Date = Date()
     
     required init() {
         
