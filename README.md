@@ -7,4 +7,7 @@ Motive is a to-do app that tracks both your completion progress throughout the d
 App Store link:
 https://apple.co/2DkFQhG
 
+Demo:
+https://imgur.com/gallery/konYhI4
+
 <img src="./light%20reward%20progress.png" alt="preview of todo list" width="420"/>
